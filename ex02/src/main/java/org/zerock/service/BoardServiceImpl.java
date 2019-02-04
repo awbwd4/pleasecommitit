@@ -36,32 +36,54 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void register(BoardVO board) {
-		// TODO Auto-generated method stub
-		
+
+		log.info("register......"+board);
+	
+		mapper.insertSelectKey(board);
+		//mapper의 insertSelectKey()를 이용해서  생성된 게시물의
+		//번호를 확인할 수 있도록 함.
 	}
 
 	@Override
 	public BoardVO get(Long bno) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("get................"+bno);
+		
+		return mapper.read(bno);
 	}
 
+	
+	
+	/*
+	 * 삭제/수정은 메서드의 리턴 타입을 void로 설계할 수도 있지만 
+	 * 엄격하게 처리하기 위해서 boolean으로 처리하는게 일반적
+	 * */
+	
+	
+	
 	@Override
 	public boolean modify(BoardVO board) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		log.info("modify........."+board);
+	
+		return mapper.update(board) == 1;
+		//update가 성공했을 때 mapper.xml의 sql은 1을 리턴함.
 	}
 
 	@Override
 	public boolean remove(Long bno) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		log.info("remove............"+bno);
+	
+		return mapper.delete(bno) == 1;
 	}
 
+	
 	@Override
 	public List<BoardVO> getList() {
-		// TODO Auto-generated method stub
-		return null;
+
+		log.info("getList.......................");
+		
+		return mapper.getList();
 	}
 
 }
