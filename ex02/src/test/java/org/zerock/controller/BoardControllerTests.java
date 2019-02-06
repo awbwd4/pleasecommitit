@@ -114,7 +114,6 @@ public class BoardControllerTests {
 				).andReturn().getModelAndView().getViewName();
 		//mockMvc를 이용해서 파라미터를 전달하 ㄹ때에는 문자열로만 처리해야함.
 		
-		
 		log.info(resultPage);
 		
 	}
