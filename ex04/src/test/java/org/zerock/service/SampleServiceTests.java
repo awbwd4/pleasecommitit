@@ -46,7 +46,7 @@ public class SampleServiceTests {
 		log.info(service.doAdd("123", "456"));
 	}
 	//ㅁㄻㄴㅇㄻㅇㄻㅇㄴㅇㅁㄴㄻㅇㄻㄹㅇㅁㄴㅇㄹ
-	/*
+	/*ㅁㅇㄴㄻㅇㄴㄻㅇㅁㅇ
 	@Test
 	public void testAddError() throws Exception{
 		//타겟객체의 joinpoint 확인
