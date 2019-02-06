@@ -45,7 +45,7 @@ public class SampleServiceTests {
 		
 		log.info(service.doAdd("123", "456"));
 	}
-	
+	//ㅁㄻㄴㅇㄻㅇㄻㅇㄴ
 	/*
 	@Test
 	public void testAddError() throws Exception{
