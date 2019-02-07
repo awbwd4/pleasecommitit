@@ -1,0 +1,260 @@
+{\rtf1\ansi\ansicpg949\deff0\nouicompat\deflang1033\deflangfe1042{\fonttbl{\f0\fnil Consolas;}{\f1\fnil\fcharset129 \'b8\'bc\'c0\'ba \'b0\'ed\'b5\'f1;}}
+{\colortbl ;\red3\green148\blue190;\red3\green168\blue216;\red167\green236\blue33;\red82\green202\blue17;\red23\green198\blue148;\red128\green128\blue128;\red0\green0\blue255;\red217\green232\blue247;\red98\green98\blue98;}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\cf1\f0\fs24\lang18 <?\cf2\b xml\cf0\b0  \cf3 version\cf4 =\cf5\i "1.0"\cf0\i0  \cf3 encoding\cf4 =\cf5\i "UTF-8"\cf1\i0 ?>\cf0\par
+\cf6 <\cf2\b project\cf0\b0  \cf3 xmlns\cf4 =\cf5\i "http://maven.apache.org/POM/4.0.0"\cf0\i0\par
+\tab\cf3 xmlns:xsi\cf4 =\cf5\i "http://www.w3.org/2001/XMLSchema-instance"\cf0\i0\par
+\tab\cf3 xsi:schemaLocation\cf4 =\cf5\i "http://maven.apache.org/POM/4.0.0 {{\field{\*\fldinst{HYPERLINK http://maven.apache.org/maven-v4_0_0.xsd }}{\fldrslt{http://maven.apache.org/maven-v4_0_0.xsd\ul0\cf0}}}}\f0\fs24 "\cf6\i0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b modelVersion\cf6\b0 >\cf8 4.0.0\cf6 </\cf2\b modelVersion\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 com.zerock\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 controller\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b name\cf6\b0 >\cf8 ex01\cf6 </\cf2\b name\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b packaging\cf6\b0 >\cf8 war\cf6 </\cf2\b packaging\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.0.0-BUILD-SNAPSHOT\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b properties\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b java-version\cf6\b0 >\cf8 1.8\cf6 </\cf2\b java-version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b org.springframework-version\cf6\b0 >\cf8 5.0.7.RELEASE\cf6 </\cf2\b org.springframework-version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b org.aspectj-version\cf6\b0 >\cf8 1.6.10\cf6 </\cf2\b org.aspectj-version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b org.slf4j-version\cf6\b0 >\cf8 1.6.6\cf6 </\cf2\b org.slf4j-version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b jackson.version\cf6\b0 >\cf8 2.9.8\cf6 </\cf2\b jackson.version\cf6\b0 >\cf0\par
+\cf8\tab\cf6 </\cf2\b properties\cf6\b0 >\cf0\par
+\cf8\tab\cf6 <\cf2\b dependencies\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf9 <!-- Spring -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.springframework\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 spring-context\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.springframework-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b exclusions\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf9 <!-- Exclude Commons Logging in favor of SLF4j -->\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b exclusion\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 commons-logging\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 commons-logging\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 </\cf2\b exclusion\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 </\cf2\b exclusions\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.springframework\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 spring-webmvc\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.springframework-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.springframework\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 spring-test\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.springframework-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.springframework\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 spring-jdbc\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.springframework-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.springframework\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 spring-tx\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.springframework-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\cf8\tab\tab\cf9 <!-- \ul Lombok\ulnone  -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.projectlombok\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 lombok\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.18.0\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 provided\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\cf8\tab\tab\cf9 <!-- \ul Jackson\ulnone -\ul Databind\ulnone  \ul Json\ulnone  \f1\'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6\f0  \f1\'b8\'b8\'b5\'e9\'b1\'e2\f0  \f1\'c0\'a7\'c7\'d1\f0  \f1\'c0\'c7\'c1\'b8\f0  \f1\'c1\'d6\'c0\'d4\f0  -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 com.fasterxml.jackson.core\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 jackson-databind\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{jackson.version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf9 <!-- AspectJ -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.aspectj\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 aspectjrt\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.aspectj-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf9 <!-- Logging -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.slf4j\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 slf4j-api\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.slf4j-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.slf4j\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 jcl-over-slf4j\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.slf4j-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 runtime\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.slf4j\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 slf4j-log4j12\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 $\{org.slf4j-version\}\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 runtime\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf0\par
+\cf8\tab\tab\cf0\par
+\cf8\tab\tab\cf0\par
+\cf8\tab\tab\cf0\par
+\par
+\par
+\cf8\tab\tab\cf9 <!-- \f1\'c6\'c4\'c0\'cf\f0  \f1\'be\'f7\'b7\'ce\'b5\'e5\f0  -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 commons-fileupload\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 commons-fileupload\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.3.3\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 commons-io\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 commons-io\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.4\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 log4j\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 log4j\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.2.16\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf9 <!-- <exclusions> <exclusion> <groupId>javax.mail</groupId> <artifactId>mail</artifactId> \cf0\par
+\cf9\tab\tab\tab\tab </exclusion> <exclusion> <groupId>javax.jms</groupId> <artifactId>\ul jms\ulnone </artifactId> \cf0\par
+\cf9\tab\tab\tab\tab </exclusion> <exclusion> <groupId>com.sun.jdmk</groupId> <artifactId>\ul jmxtools\ulnone </artifactId> \cf0\par
+\cf9\tab\tab\tab\tab </exclusion> <exclusion> <groupId>com.sun.jmx</groupId> <artifactId>\ul jmxri\ulnone </artifactId> \cf0\par
+\cf9\tab\tab\tab\tab </exclusion> </exclusions> <scope>runtime</scope> -->\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf9 <!-- @Inject -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 javax.inject\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 javax.inject\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf9 <!-- \ul Servlet\ulnone  -->\cf0\par
+\cf8\tab\tab\cf9 <!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>\ul servlet\ulnone -\ul api\ulnone </artifactId> \cf0\par
+\cf9\tab\tab\tab <version>2.5</version> <scope>provided</scope> </dependency> -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 javax.servlet\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 javax.servlet-api\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 3.1.0\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\cf8\tab\tab\cf9 <!-- \f1\'c4\'bf\'b3\'d8\'bc\'c7\f0  \f1\'c7\'ae\'b0\'fa\f0  \ul mybatis\ulnone  -->\cf0\par
+\par
+\cf8\tab\tab\cf9 <!-- Connection Pool -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 com.zaxxer\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 HikariCP\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 2.7.4\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf9 <!-- MyBatis -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.mybatis\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 mybatis\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 3.4.6\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.mybatis\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 mybatis-spring\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.3.2\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf9 <!-- myBatis \f1\'b7\'ce\'b1\'d7\f0  \f1\'c3\'e2\'b7\'c2\f0  -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.bgee.log4jdbc-log4j2\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 log4jdbc-log4j2-jdbc4\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.16\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\par
+\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 javax.servlet.jsp\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 jsp-api\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 2.1\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 provided\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 javax.servlet\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 jstl\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.2\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 jstl\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 jstl\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.2\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 compile\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 taglibs\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 standard\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.1.2\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 compile\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\par
+\par
+\par
+\cf8\tab\tab\cf9 <!-- Test -->\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 junit\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 junit\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 4.12\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b scope\cf6\b0 >\cf8 test\cf6 </\cf2\b scope\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b dependency\cf6\b0 >\cf0\par
+\cf8\tab\cf6 </\cf2\b dependencies\cf6\b0 >\cf0\par
+\cf8\tab\cf0\par
+\cf8\tab\cf0\par
+\cf8\tab\cf0\par
+\cf8\tab\cf6 <\cf2\b build\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 <\cf2\b plugins\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b plugin\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 maven-eclipse-plugin\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 2.9\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b configuration\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b additionalProjectnatures\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\tab\cf6 <\cf2\b projectnature\cf6\b0 >\cf8 org.springframework.ide.eclipse.core.springnature\cf6 </\cf2\b projectnature\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 </\cf2\b additionalProjectnatures\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b additionalBuildcommands\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\tab\cf6 <\cf2\b buildcommand\cf6\b0 >\cf8 org.springframework.ide.eclipse.core.springbuilder\cf6 </\cf2\b buildcommand\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 </\cf2\b additionalBuildcommands\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b downloadSources\cf6\b0 >\cf8 true\cf6 </\cf2\b downloadSources\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b downloadJavadocs\cf6\b0 >\cf8 true\cf6 </\cf2\b downloadJavadocs\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 </\cf2\b configuration\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 </\cf2\b plugin\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b plugin\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.apache.maven.plugins\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 maven-compiler-plugin\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 2.5.1\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b configuration\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b source\cf6\b0 >\cf8 1.8\cf6 </\cf2\b source\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b target\cf6\b0 >\cf8 1.8\cf6 </\cf2\b target\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b compilerArgument\cf6\b0 >\cf8 -Xlint:all\cf6 </\cf2\b compilerArgument\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b showWarnings\cf6\b0 >\cf8 true\cf6 </\cf2\b showWarnings\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b showDeprecation\cf6\b0 >\cf8 true\cf6 </\cf2\b showDeprecation\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 </\cf2\b configuration\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 </\cf2\b plugin\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 <\cf2\b plugin\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b groupId\cf6\b0 >\cf8 org.codehaus.mojo\cf6 </\cf2\b groupId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b artifactId\cf6\b0 >\cf8 exec-maven-plugin\cf6 </\cf2\b artifactId\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b version\cf6\b0 >\cf8 1.2.1\cf6 </\cf2\b version\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 <\cf2\b configuration\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\tab\cf6 <\cf2\b mainClass\cf6\b0 >\cf8 org.test.int1.Main\cf6 </\cf2\b mainClass\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\tab\cf6 </\cf2\b configuration\cf6\b0 >\cf0\par
+\cf8\tab\tab\tab\cf6 </\cf2\b plugin\cf6\b0 >\cf0\par
+\cf8\tab\tab\cf6 </\cf2\b plugins\cf6\b0 >\cf0\par
+\cf8\tab\cf6 </\cf2\b build\cf6\b0 >\cf0\par
+\cf6 </\cf2\b project\cf6\b0 >\cf0\par
+\f1\fs20\par
+}
+ 
