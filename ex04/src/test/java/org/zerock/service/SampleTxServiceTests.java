@@ -26,6 +26,7 @@ public class SampleTxServiceTests {
 				"Starry night\r\n"+
 				"Paint your palette blue and grey\r\n"+
 				"Look out on a summer's day";
+		String str1 = "a";
 		
 		log.info(str.getBytes().length);
 		
