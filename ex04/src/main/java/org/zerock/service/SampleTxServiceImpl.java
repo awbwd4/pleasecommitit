@@ -1,6 +1,7 @@
 package org.zerock.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.zerock.mapper.Sample1Mapper;
 import org.zerock.mapper.Sample2Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class SampleTxServiceImpl implements SampleTxService {
 	private Sample2Mapper mapper2;
 	
 	
+	//@Transactional
 	@Override
 	public void addData(String value) {
 		//같은 데이터(value)를 tbl_sample1과 tbl_sample_2 테이블에 insert함

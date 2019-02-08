@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -18,14 +19,14 @@ public class SampleTxServiceTests {
 	@Setter(onMethod_ = {@Autowired})
 	private SampleTxService service;
 	
-	
+	@Transactional
 	@Test
 	public void testLong() {
 		
-		String str = "Starry\r\n"+
-				"Starry night\r\n"+
-				"Paint your palette blue and grey\r\n"+
-				"Look out on a summer's day";
+		String str = "22222222\r\n"+ "Starry\r\n"+
+				" Starry night\r\n"+
+				" Paint your palette blue and grey\r\n"+
+				" Look out on a summer's day";
 		String str1 = "a";
 		
 		log.info(str.getBytes().length);
