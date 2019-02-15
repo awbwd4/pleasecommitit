@@ -43,7 +43,12 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				
+		<!-- spring=tx : 데이터베이스와 트랜잭션 처리를 담당 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 				
 		<!-- getter, setter, toString, 생성자등을 자동으로
 			생성해주는 라이브러리.
