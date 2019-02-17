@@ -38,7 +38,29 @@ p. 64
 
 p. 66 - 스프링 컨테이너가 객체들을 bean으로 관리하는 과정
  1) root-context.xml에 <component-scan> 태그 추가 : 스캔하여 bean으로 관리할 패키지 설정
-	2) 패키지 내부에 @component가 붙어있는 클래스를 객체로 만들어서 bean으로 관리함.
+ 2) 패키지 내부에 @component가 붙어있는 클래스를 객체로 만들어서 bean으로 관리함.
  
  3) @autowired : @autowired가 붙은 메소드나 클래스 - 스프링 내부에서/ 자신이 특정한 객체에 의존적이므로/ 자신에게 해당 타입의 빈을/ 주입하라는 것. 
+ 
+p.93 - myBatis와 스프링의 연동 처리
+ 1) mybatis의 mapper : SQL과 그에 대한 처리를 지정. SQL을 어떻게 처리할 것인지를 별도의 설정으로 분리하여 자동으로 처리되는 방식을 이용.
+ 2) mybatis-spring을 이용하는 경우 : mapper를 XML과 인터페이스+어노테이션의 형태로 작성 가능, 여기서는 최소한의 코드를 작성하는 인터페이스 방식 사용.
+ 
+p. 100
+ 3) XML과 인터페이스 둘다 사용 가능 : XML 매퍼의 mapper 태그의 namespace속성값이 실제로 존재한다면, 이를 병합하여 처리함.
+ 4) 예제의 경우 메서드 선언은 인터페이스에 존재, SQL에 대한 처리는 XML 사용.
 
+ p.118
+  1) 스프링 mvc 프로젝트의 구동은 web.xml 에서 시작함. web.xml의 상단에 있는 context listner가 제일 먼저 구동됨.
+  2) root-context.xml에 정의된 bean들은 스프링의 영역(context) 안에 생성됨 -> 객체들 간의 의존성이 처리.
+  3) root-context.xml이 처리된 후에는 스프링 mvc에서 사용하는 DispatcherServlet이라는 서블릿과 관련된 설정이 동작됨.
+  4) DispatcherServlet클래스는 스프링 mvc의 구조에서 가장 핵심적인 역할을 수행. 내부적으로 웹 관련 처리의 준비작업을 진행, 이때 사용하는 파일이 servlet-context.xml
+  
+  p.122 mvc 구동 방식
+  (요청 -> dispatcherServlet -> handlerMapping -> HandlerAdapter -> Controller -> ViewResolver -> DispatcherServlet -> 사용자는 처리결과를 받는다.)
+   1) DispatcherServlet : 일단 사용자로부터의 모든 요청 request는 DispatcherServlet으로
+   2) HandlerMapping : 요청을 처리할 컨트롤러를 찾아줌
+   3) HadlerAdapter : 컨트롤러를 찾았으면, 이 컨트롤러를 구동함
+   4) Controller : 요청을 처리할 로직. 요청 처리 결과는 Model에 담아 View로 전달한다.
+   5) ViewResolver : Controller의 처리결과를 어떤 View를 통해 처리하면 좋을지 해석해줌
+   6) DispatcherServlet : 이제 모든 요청 처리가 끝났음. DispatcherServlet은 모든 처리가 끝난 결과를 View로 전달함.
