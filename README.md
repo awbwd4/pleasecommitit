@@ -64,3 +64,8 @@ p. 100
    4) Controller : 요청을 처리할 로직. 요청 처리 결과는 Model에 담아 View로 전달한다.
    5) ViewResolver : Controller의 처리결과를 어떤 View를 통해 처리하면 좋을지 해석해줌
    6) DispatcherServlet : 이제 모든 요청 처리가 끝났음. DispatcherServlet은 모든 처리가 끝난 결과를 View로 전달함.
+   
+  p.128 스프링 mvc의 controller
+   1) requestMapping에서는 method의 속성 설정 가능(get/post)
+   2) 이는 속성값을 주는 대신 @getMapping @postMapping으로 쓸 수도 있다.
+  
