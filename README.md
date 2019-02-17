@@ -50,4 +50,17 @@ p. 100
  3) XML과 인터페이스 둘다 사용 가능 : XML 매퍼의 mapper 태그의 namespace속성값이 실제로 존재한다면, 이를 병합하여 처리함.
  4) 예제의 경우 메서드 선언은 인터페이스에 존재, SQL에 대한 처리는 XML 사용.
 
- 
+ p.118
+  1) 스프링 mvc 프로젝트의 구동은 web.xml 에서 시작함. web.xml의 상단에 있는 context listner가 제일 먼저 구동됨.
+  2) root-context.xml에 정의된 bean들은 스프링의 영역(context) 안에 생성됨 -> 객체들 간의 의존성이 처리.
+  3) root-context.xml이 처리된 후에는 스프링 mvc에서 사용하는 DispatcherServlet이라는 서블릿과 관련된 설정이 동작됨.
+  4) DispatcherServlet클래스는 스프링 mvc의 구조에서 가장 핵심적인 역할을 수행. 내부적으로 웹 관련 처리의 준비작업을 진행, 이때 사용하는 파일이 servlet-context.xml
+  
+  p.122 mvc 구동 방식
+  (요청 -> dispatcherServlet -> handlerMapping -> HandlerAdapter -> Controller -> ViewResolver -> DispatcherServlet -> 사용자는 처리결과를 받는다.)
+   1) DispatcherServlet : 일단 사용자로부터의 모든 요청 request는 DispatcherServlet으로
+   2) HandlerMapping : 요청을 처리할 컨트롤러를 찾아줌
+   3) HadlerAdapter : 컨트롤러를 찾았으면, 이 컨트롤러를 구동함
+   4) Controller : 요청을 처리할 로직. 요청 처리 결과는 Model에 담아 View로 전달한다.
+   5) ViewResolver : Controller의 처리결과를 어떤 View를 통해 처리하면 좋을지 해석해줌
+   6) DispatcherServlet : 이제 모든 요청 처리가 끝났음. DispatcherServlet은 모든 처리가 끝난 결과를 View로 전달함.
