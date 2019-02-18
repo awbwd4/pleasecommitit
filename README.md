@@ -64,3 +64,23 @@ p. 100
    4) Controller : 요청을 처리할 로직. 요청 처리 결과는 Model에 담아 View로 전달한다.
    5) ViewResolver : Controller의 처리결과를 어떤 View를 통해 처리하면 좋을지 해석해줌
    6) DispatcherServlet : 이제 모든 요청 처리가 끝났음. DispatcherServlet은 모든 처리가 끝난 결과를 View로 전달함.
+   
+  p.128 스프링 mvc의 controller
+   1) requestMapping에서는 method의 속성 설정 가능(get/post)
+   2) 이는 속성값을 주는 대신 @getMapping @postMapping으로 쓸 수도 있다.
+  
+  p.139 model이라는 데이터 전달자
+   1) Controller에서는 Model타입을 파라미터로 지정 가능
+   2) Model 객체는 JSP와 같은 view에 컨트롤러에서 생성된 데이터를 담아서 전달하는 역할
+   3) 주로 Controller에 전달된 데이터를 이용해서 추가적인 데이터를 가져와야 하는 상황에 쓰임
+   4) 스프링 MVC의 Controller는 기본적으로 Java Beans 규칙에 맞는 객체는 다시 화면으로 객체를 전달
+   5) JAVA Beans의 규칙 : 단순히 생성자가 없거나 빈 생성자를 가져야 하며 + getter/setter를 가진 클래스의 객체들을 의미함
+   6) int와 같은 기본 자료형의 경우는 파라미터로 선언해도, 기본적으로는 화면까지 전달은 안됨
+    ->이를 전달하기 위해서는 Model 객체가 필요함. 
+  
+  p.143 RedirectAttributes -> part3에서 자세히 설명
+   1) Model객체와 같은 역할
+   2) 하지만 일회성임. 
+  
+  p.143 Controller의 리턴 타입
+   1) void 타입 : 메서드의 리턴 타입을 void로 지정하는 경우, 일반적인 경우 해당 URL의 경로를 그대로 jsp파일의 이름으로 사용
