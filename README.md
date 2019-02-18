@@ -18,7 +18,8 @@
 ****Oracle DB
 SYSTEM/1111, 포트넘버 9090
 
-
+Json 타입?
+http://egloos.zum.com/killins/v/3013974
 
 
 
@@ -84,3 +85,6 @@ p. 100
   
   p.143 Controller의 리턴 타입
    1) void 타입 : 메서드의 리턴 타입을 void로 지정하는 경우, 일반적인 경우 해당 URL의 경로를 그대로 jsp파일의 이름으로 사용
+   2) String 타입 : 상황에 따라 다른 화면을 보여줄 필요가 있을 경우에 유용.
+   3) 객체 타입 : VO(Value Object)나 DTO(Data Transfer Object) 타입 등 복합적인 데이터가 들어간 객체타입 ->주로 json 데이터를 만드는데 쓰임.
+   4) ResponseEntity : http 프로토콜의 헤더를 다루는 경우
