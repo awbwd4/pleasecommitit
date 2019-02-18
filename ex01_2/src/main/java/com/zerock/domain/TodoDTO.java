@@ -1,0 +1,11 @@
+package com.zerock.domain;
+
+import java.util.Date;
+
+public class TodoDTO {
+
+	private String title;
+	private Date dueDate;
+	
+}
+	
