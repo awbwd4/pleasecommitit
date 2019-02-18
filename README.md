@@ -69,3 +69,7 @@ p. 100
    1) requestMapping에서는 method의 속성 설정 가능(get/post)
    2) 이는 속성값을 주는 대신 @getMapping @postMapping으로 쓸 수도 있다.
   
+  p.139 model이라는 데이터 전달자
+   1) Controller에서는 Model타입을 파라미터로 지정 가능
+   2) Model 객체는 JSP와 같은 view에 컨트롤러에서 생성된 데이터를 담아서 전달하는 역할
+   3) 주로 Controller에 전달된 데이터를 이용해서 추가적인 데이터를 가져와야 하는 상황에 쓰임
