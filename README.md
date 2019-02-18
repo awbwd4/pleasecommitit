@@ -81,3 +81,6 @@ p. 100
   p.143 RedirectAttributes -> part3에서 자세히 설명
    1) Model객체와 같은 역할
    2) 하지만 일회성임. 
+  
+  p.143 Controller의 리턴 타입
+   1) void 타입 : 메서드의 리턴 타입을 void로 지정하는 경우, 일반적인 경우 해당 URL의 경로를 그대로 jsp파일의 이름으로 사용
