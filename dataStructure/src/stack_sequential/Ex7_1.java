@@ -12,6 +12,18 @@ public class Ex7_1 {
 		as.push('a');
 		as.printStack();
 		
+		as.push('b');
+		as.printStack();
+		
+		as.push('c');
+		as.printStack();
+		
+		deletedItem = as.pop();
+		if (deletedItem != 0) {
+			System.out.println("deleted item : "+deletedItem);
+		}
+		as.printStack();
+		
 		
 		
 		

@@ -27,11 +27,4 @@ public class Ex7_2 {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 }
