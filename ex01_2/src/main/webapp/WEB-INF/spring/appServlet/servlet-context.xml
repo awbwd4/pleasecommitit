@@ -21,13 +21,20 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- Controller의 파일 업로드 처리.  -->
+	<beans:bean id="mutipartResolver"
+		 class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value = "utf-8"/>	 
+		<beans:property name="maxUploadSize" value = "104857560"/>
+		<beans:property name="maxUploadSizePerFile" value="2097152"/>
+		<beans:property name="uploadTempDir" value="file:/c:/upload/tmp"/>
+		<beans:property name="maxInMemorySize" value="10485756"/>
+	</beans:bean>
+	
+	
+	
 	<context:component-scan base-package="com.zerock.controller" />
 	<!-- 이 태그를 통해 com.zerock.controller에 있는 클래스는 스프링 bean으로 자동 등록된다. -->
-	
-	
-	
-	
-	
-	
+	<context:component-scan base-package="com.zerock.exception" />
 	
 </beans:beans>
