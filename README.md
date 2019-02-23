@@ -21,6 +21,25 @@ SYSTEM/1111, 포트넘버 9090
 Json 타입?
 http://egloos.zum.com/killins/v/3013974
 
+root-context.xml
+ - 스프링 레임워크에서 관리해야 하는 객체(bean)를 설정하는 설정 파일.
+ - 스프링이 로딩되면서 읽어 들이는 문서, 주로 이미 만들어진 클래스들을 이용해서 스프링의 bean으로 등록할 때 사용.
+ - connection pool, dataSource, SQLSessionFactory등은 여기에.
+ - 작동 방식
+   1) 스프링 프레임워크가 시작되면, 먼저 스프링이 사용하는 메모리영역(스프링 컨텍스트)를 만듦.
+     -> 스프링에선 applicationContext라는 이름의 객체가 만들어짐.
+   2) 스프링은 자신이 객체를 생성하고 관리해야하는 객체들에 대한 설정이 필요. 이 설정이 root-context.xml
+   3) root-context.xml에 설정되어있는 <context:component-scan> 태그의 내용을 통해서 해당 패키지(eg : org.zerock.controller)패키지를 스캔함.
+   4) 해당 패키지에 있는 클래스들 중에서, 스프링이 사용하는 @Component 어노테이션이 존재하는 클래스의, 인스턴스를 생성함.
+   5) Restaurant객체는 chef 객체가 필요하다는 어노테이션 설정(@autowired) 설정이 있음.
+      따라서 스프링은 chef객체의 레퍼런스를 restaurant 객체에 주입함. 
+
+
+web.xml
+ - DispatcherServlet이 설정되어 있음.
+ - 스프링 컨텍스트의 설정으로 root-context.xml이 지정돼있음.
+ 
+
 
 
 
