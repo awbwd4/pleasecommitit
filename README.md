@@ -23,6 +23,45 @@ http://egloos.zum.com/killins/v/3013974
 
 
 
+web.xml
+ - DispatcherServlet이 설정되어 있음.
+ - 스프링 컨텍스트의 설정으로 root-context.xml이 지정돼있음.
+
+<Spring context config>
+ 
+ 
+spring의 context설정은 크게 root-context와 servlet-context로 나뉠 수 있다. 
+
+1. servlet-context.xml : controllers, viewResolver, HandlerMapping
+ - 웹 애플리케이션의 client 요청을 받기 위한 entry point
+ - 서블릿의 context 설정에 해당.
+ - 여기에는 요청에 대한 처리를 해줄 controller의 매핑 설정(handler mapping)
+   + 요청 처리 후 view 처리를 어떻게 할 것인가에 대한 설정(view resolver) 등이 존재함.
+
+
+2. root-context.xml : 비즈니스 계층, 데이터 소스 관련 repositories관련
+ - 스프링 레임워크에서 관리해야 하는 객체(bean)를 설정하는 설정 파일.
+ - 스프링이 로딩되면서 읽어 들이는 문서, 주로 이미 만들어진 클래스들을 이용해서 스프링의 bean으로 등록할 때 사용.
+ - connection pool, dataSource, SQLSessionFactory등은 여기에.
+ - 비즈니스 계층 + database와 연결되는 repository layer를 구성하는 bean에 대한 설정을 함.
+ - 작동 방식
+   1) 스프링 프레임워크가 시작되면, 먼저 스프링이 사용하는 메모리영역(스프링 컨텍스트)를 만듦.
+     -> 스프링에선 applicationContext라는 이름의 객체가 만들어짐.
+   2) 스프링은 자신이 객체를 생성하고 관리해야하는 객체들에 대한 설정이 필요. 이 설정이 root-context.xml
+   3) root-context.xml에 설정되어있는 <context:component-scan> 태그의 내용을 통해서 해당 패키지(eg : org.zerock.controller)패키지를 스캔함.
+   4) 해당 패키지에 있는 클래스들 중에서, 스프링이 사용하는 @Component 어노테이션이 존재하는 클래스의, 인스턴스를 생성함.
+   5) Restaurant객체는 chef 객체가 필요하다는 어노테이션 설정(@autowired) 설정이 있음.
+      따라서 스프링은 chef객체의 레퍼런스를 restaurant 객체에 주입함. 
+
+다수의 servlet-context.xml을 갖게 될 경우, 이 servlet-context.xml 들이 root-context.xml의 bean 정보를 참조하는 구조가 될 수도 있다.
+
+ => 따라서 contect component scan을 통한 bean 등록 설정에 주의해야 함.
+  : 양쪽 context 설정에서 component scan설정을 통해 bean 등록을 할 때 
+  controller와 service, repository 각 bean들이 등록되어야 하는 context에 맞게 등록이 되도록 해주어야 함.
+  중복 등록을 하면 불필요한 자원 낭비 발생.
+
+https://nice2049.tistory.com/entry/spring-rootContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-servletContext-%EB%8C%80%ED%95%B4%EC%84%9C
+
 
 <레퍼런스 메모>
 
@@ -88,3 +127,38 @@ p. 100
    2) String 타입 : 상황에 따라 다른 화면을 보여줄 필요가 있을 경우에 유용.
    3) 객체 타입 : VO(Value Object)나 DTO(Data Transfer Object) 타입 등 복합적인 데이터가 들어간 객체타입 ->주로 json 데이터를 만드는데 쓰임.
    4) ResponseEntity : http 프로토콜의 헤더를 다루는 경우
+   
+   p. 164 스프링 mvc 프로젝트의 기본 구성
+    1) 웹 프로젝트는 3-tier로 구성됨 : presentation - business - persistence
+    2) presentation tier : 화면에 보여주는 기술
+    3) business tire : 순수한 비즈니스 로직, 고객이 원하는 요구 사항을 반영하는 계층. 고객의 요구사항과 정확히 일치하도록 설계돼야 함. 
+       xxxService
+    4) persistence tier : 데이터를 어떤 방식으로 보관하고, 사용하는가에 대한 설계가 들어가는 계층. 
+    
+   p.165 Naming Convention
+     1) 3-tier로 구성하는 이유 : 유지보수 때문.
+   
+   p. 167 프로젝트를 위한 요구사항
+     1) 요구사항은 온전한 문장으로 정리하는 것이 좋다. 
+       eg) 고객은 새로운 게시물을 등록 할 수 있어야 한다. 
+   
+   p. 177
+     1) JDBCTests와 DataSourceTests는 웹 개발 이전에 테스트를 통해 확인해야 함. 
+     
+   p. 182 영속/비즈니스 계층의 CRUD 구현
+     순서 1) 테이블의 칼럼 구조를 반영하는 VO 클래스 생성
+          2) MyBatis의 Mapper 인터페이스의 작성/XML 처리
+          3) 작성한 Mapper 인터페이스의 테스트
+  
+  p. 184 mapper 인터페이스와 mapper xml
+   1) mybatis : sql처리에 어노테이션 or xml 이용 가능
+   2) 간단한 sql이라면 어노테이션을 사용하는게 무난
+   3) 복잡한 경우에는 xml - 단순 텍스트를 수정하는 과정만으로 끝남.
+     어노테이션의 경우 코드를 수정하고 다시 빌드 하는 등, 유지 보수성이 떨어짐
+     
+  p.188 mapper xml파일 작성 시 
+   1) <mapper>dml namespace 속성값을 Mapper 인터페이스와 동일한 이름으로 줄 것.
+   2) <select> 태그의 id 속성값은 메서드의 이름과 일치하도록.
+   3) resultType 속성값은 select 쿼리의 결과를 특정 클래스의 객체로 만들기 위해서 설정함.
+  
+   
