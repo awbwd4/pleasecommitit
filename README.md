@@ -88,3 +88,10 @@ p. 100
    2) String 타입 : 상황에 따라 다른 화면을 보여줄 필요가 있을 경우에 유용.
    3) 객체 타입 : VO(Value Object)나 DTO(Data Transfer Object) 타입 등 복합적인 데이터가 들어간 객체타입 ->주로 json 데이터를 만드는데 쓰임.
    4) ResponseEntity : http 프로토콜의 헤더를 다루는 경우
+   
+   p. 164 스프링 mvc 프로젝트의 기본 구성
+    1) 웹 프로젝트는 3-tier로 구성됨 : presentation - business - persistence
+    2) presentation tier : 화면에 보여주는 기술
+    3) business tire : 순수한 비즈니스 로직, 고객이 원하는 요구 사항을 반영하는 계층. 고객의 요구사항과 정확히 일치하도록 설계돼야 함. 
+       xxxService
+    4) persistence tier : 데이터를 어떤 방식으로 보관하고, 사용하는가에 대한 설계가 들어가는 계층. 
