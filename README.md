@@ -21,10 +21,29 @@ SYSTEM/1111, 포트넘버 9090
 Json 타입?
 http://egloos.zum.com/killins/v/3013974
 
-root-context.xml
+
+
+web.xml
+ - DispatcherServlet이 설정되어 있음.
+ - 스프링 컨텍스트의 설정으로 root-context.xml이 지정돼있음.
+
+<Spring context config>
+ 
+ 
+spring의 context설정은 크게 root-context와 servlet-context로 나뉠 수 있다. 
+
+1. servlet-context.xml : controllers, viewResolver, HandlerMapping
+ - 웹 애플리케이션의 client 요청을 받기 위한 entry point
+ - 서블릿의 context 설정에 해당.
+ - 여기에는 요청에 대한 처리를 해줄 controller의 매핑 설정(handler mapping)
+   + 요청 처리 후 view 처리를 어떻게 할 것인가에 대한 설정(view resolver) 등이 존재함.
+
+
+2. root-context.xml : 비즈니스 계층, 데이터 소스 관련 repositories관련
  - 스프링 레임워크에서 관리해야 하는 객체(bean)를 설정하는 설정 파일.
  - 스프링이 로딩되면서 읽어 들이는 문서, 주로 이미 만들어진 클래스들을 이용해서 스프링의 bean으로 등록할 때 사용.
  - connection pool, dataSource, SQLSessionFactory등은 여기에.
+ - 비즈니스 계층 + database와 연결되는 repository layer를 구성하는 bean에 대한 설정을 함.
  - 작동 방식
    1) 스프링 프레임워크가 시작되면, 먼저 스프링이 사용하는 메모리영역(스프링 컨텍스트)를 만듦.
      -> 스프링에선 applicationContext라는 이름의 객체가 만들어짐.
@@ -34,13 +53,14 @@ root-context.xml
    5) Restaurant객체는 chef 객체가 필요하다는 어노테이션 설정(@autowired) 설정이 있음.
       따라서 스프링은 chef객체의 레퍼런스를 restaurant 객체에 주입함. 
 
+다수의 servlet-context.xml을 갖게 될 경우, 이 servlet-context.xml 들이 root-context.xml의 bean 정보를 참조하는 구조가 될 수도 있다.
 
-web.xml
- - DispatcherServlet이 설정되어 있음.
- - 스프링 컨텍스트의 설정으로 root-context.xml이 지정돼있음.
- 
+ => 따라서 contect component scan을 통한 bean 등록 설정에 주의해야 함.
+  : 양쪽 context 설정에서 component scan설정을 통해 bean 등록을 할 때 
+  controller와 service, repository 각 bean들이 등록되어야 하는 context에 맞게 등록이 되도록 해주어야 함.
+  중복 등록을 하면 불필요한 자원 낭비 발생.
 
-
+https://nice2049.tistory.com/entry/spring-rootContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-servletContext-%EB%8C%80%ED%95%B4%EC%84%9C
 
 
 <레퍼런스 메모>
