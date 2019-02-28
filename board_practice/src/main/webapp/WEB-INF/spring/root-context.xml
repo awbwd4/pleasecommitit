@@ -16,8 +16,9 @@
 	
 	<!-- 비즈니스 계층의 인터페이스와 구현 클래스를 스프링 빈으로 인식하기 위해
 		해당 비즈니스 계층의 패키지를 스프링이 조사하도록 해야함-->
-	<!-- <context:component-scan base-package="org.zerock.service"/> -->
-	
+	<context:component-scan base-package="com.board.domain"/>	
+	<context:component-scan base-package="com.board.persistence"/>	
+	<context:component-scan base-package="com.board.service"/>	
 	
 	
 	
