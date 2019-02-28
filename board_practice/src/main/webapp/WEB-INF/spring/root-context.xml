@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	<!-- org.zerock.mapper 패키지(데이터계층, 영속계층)를 스캔하도록 설정 -->
-	<mybatis-spring:scan base-package="org.zerock.mapper"/>
+	<!-- <mybatis-spring:scan base-package="org.zerock.mapper"/> -->
 	<!--BoardMapper인터페이스와  BoardMapper.xml을 연결해줌.-->
 	
 	
@@ -16,7 +16,7 @@
 	
 	<!-- 비즈니스 계층의 인터페이스와 구현 클래스를 스프링 빈으로 인식하기 위해
 		해당 비즈니스 계층의 패키지를 스프링이 조사하도록 해야함-->
-	<context:component-scan base-package="org.zerock.service"/>
+	<!-- <context:component-scan base-package="org.zerock.service"/> -->
 	
 	
 	

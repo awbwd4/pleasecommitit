@@ -1,9 +1,10 @@
-package com.test.controller;
+package com.board.persistence;
 
 import static org.junit.Assert.fail;
 
 import java.sql.Connection;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +24,36 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class DataSourceTest {
 
+	
+	@Inject
+	private DataSource ds;
+	
+	@Inject
+	private SqlSessionFactory sqlFactory;
+	
+	@Test
+	public void test() throws Exception{
+		
+		try(Connection conn = ds.getConnection()) {
+			log.info(conn);
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	@Setter(onMethod_ = {@Autowired})
 	private DataSource dataSource;
 	
@@ -42,7 +73,7 @@ public class DataSourceTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	*/
 	
 		
 }
