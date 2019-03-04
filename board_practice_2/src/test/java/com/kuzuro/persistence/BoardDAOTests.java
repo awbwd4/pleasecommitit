@@ -19,6 +19,7 @@ public class BoardDAOTests {
 	@Setter(onMethod_ = @Autowired)
 	private BoardDAO dao;
 	
+	/*
 	@Test
 	public void testGetList() {
 		dao.getList().forEach(board->log.info(board));
@@ -64,5 +65,51 @@ public class BoardDAOTests {
 		log.info("update count :  "+count);
 	
 	}
+	*/
+	
+	@Test 
+	public void testInsert() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새 글");
+		board.setContent("새 내용");
+		board.setWriter("newbie");
+		
+		dao.insert(board);
+		
+		log.info(board);
+		
+	}
+	
+	
+	
+	@Test
+	public void testInsertSelectKey() {
+		
+		BoardVO board = new BoardVO();
+		
+		
+		board.setTitle("새 글 select key");
+		board.setContent("새 내용 select key");
+		board.setWriter("newbie select key");
+		
+		dao.insertSelectKey(board);
+		
+		log.info(board);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

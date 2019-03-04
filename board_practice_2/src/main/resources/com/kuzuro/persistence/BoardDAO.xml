@@ -19,22 +19,26 @@
 
 	<insert id="insert">
 		insert into myBoard (bno, title, content, writer)
-		values (seq_board.nextval, #{title}, #{content}, #{writer})
+		values (myBoard_seq.nextval, #{title}, #{content}, #{writer})
 	</insert>
 
 
 
 	<insert id="insertSelectKey">
 	
-		<selectKey keyProperty="bno" 
-			order="BEFORE" resultType="long">
-			select seq_board.nextval from dual;
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select myBoard_seq.nextval from dual;
 		</selectKey>
 
 		insert into myBoard (bno, title, content, writer)
 			values(#{bno}, #{title}, #{content}, #{writer})
 	 
 	</insert>
+
+
+
+
+
 
 	<select id="read" resultType="com.kuzuro.domain.BoardVO">
 		select * from myBoard where bno = #{bno}
