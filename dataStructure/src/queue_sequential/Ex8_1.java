@@ -18,13 +18,9 @@ public class Ex8_1 {
 		
 		deletedItem = Q.deQueue();
 		Q.printQueue();
-		
+	
 		
 		
 		
 	}
-	
-	
-	
-	
 }

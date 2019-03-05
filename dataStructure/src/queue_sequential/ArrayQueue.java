@@ -45,7 +45,8 @@ public class ArrayQueue implements Queue{
 			System.out.println("deleting fail!! array queue is empty!!");
 			return 0;
 		} else {
-			return itemArray[front++];
+			return itemArray[front+1];
+			//[front+1]을 하게 되면 front필드에 저장된 값은 변하지 않음.
 		}
 
 	}
