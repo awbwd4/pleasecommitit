@@ -48,7 +48,7 @@ public class BoardControllerTests {
 				.getModelMap());
 	}
 	
-	
+	/*
 	@Test
 	public void testRegister() throws Exception{
 		
@@ -107,7 +107,7 @@ public class BoardControllerTests {
 		
 	}
 	
-	
+	*/
 	
 	
 	

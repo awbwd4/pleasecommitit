@@ -46,10 +46,29 @@ public class BoardController {
 		
 		rttr.addFlashAttribute("result", board.getBno());
 		
+//		return "redirect:/board/list";
 		return "redirect:/board/list";
 		
 		//redirect 접두어 : 스프링 mvc가 내부적으로 response.sendRedirect()를 처리해줌.
 	}
+	
+	
+	 @GetMapping("/register") 
+	 public void register() {
+		 
+		 //board/register 를 요청하면 이 컨트롤러를 통해 바로 register.jsp로 이동
+		 
+		 //<form role="action" action="board/register" method="post">
+		 //위의 form태그를 통해 컨트롤러의 post방식 register 실행
+	 
+	 }
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/get")
 	public void get(@RequestParam("bno") Long bno, Model model) {
