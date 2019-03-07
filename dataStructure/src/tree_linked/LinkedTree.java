@@ -29,9 +29,9 @@ public class LinkedTree {
 		
 		if (root != null) {
 			
-			preorder(root.left);
+			inorder(root.left);
 			System.out.printf("%c", root.data);
-			preorder(root.right);
+			inorder(root.right);
 		}
 	}
 
@@ -39,8 +39,8 @@ public class LinkedTree {
 		
 		if (root != null) {
 			
-			preorder(root.left);
-			preorder(root.right);
+			postorder(root.left);
+			postorder(root.right);
 			System.out.printf("%c", root.data);
 		}
 	}
