@@ -37,7 +37,7 @@ public class LinkedTree {
 
 	public void postorder(TreeNode root) {
 		
-		if (root != null) {
+		if (root != null) {	
 			
 			postorder(root.left);
 			postorder(root.right);
