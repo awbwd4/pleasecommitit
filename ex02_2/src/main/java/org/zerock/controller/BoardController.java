@@ -70,12 +70,12 @@ public class BoardController {
 	
 	
 	
-	@GetMapping("/get")
+	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		
-		log.info("/get");
+		log.info("/get or modifi");
 		model.addAttribute("board", service.get(bno));
-		
+		//수정, 삭제가 가능한 화면으로 이동.
 	}
 	
 	@PostMapping("modify")
