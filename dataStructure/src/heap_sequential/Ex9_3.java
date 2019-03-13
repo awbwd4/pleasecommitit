@@ -9,6 +9,7 @@ public class Ex9_3 {
 		Heap h = new Heap();
 		
 		h.insertHeap(13);
+		h.insertHeap(19);
 		
 		h.printHeap();
 		
