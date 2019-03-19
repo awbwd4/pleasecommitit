@@ -66,22 +66,32 @@
 
 
 						<c:if test="${pageMAker.prev}">
-							<li class="paginate_button previous"><a href="#">Previous</a>
+							<li class="paginate_button previous"><a href="${pageMaker.startPage-1}">Previous</a>
 							</li>
 						</c:if>
 
 						<c:forEach var="num" begin="${pageMaker.startPage}"
 							end="${pageMaker.endPage}">
-							<li class="paginate_button"><a href="#">${num}</a></li>
+							<li class="paginate_button    ${pageMaker.cri.pageNum == num ? "active": "" } ">
+							<a href="${num }">${num}</a>
+							</li>
 						</c:forEach>
-
+                               
 
 						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a href="#">Next</a></li>
+							<li class="paginate_button next"><a href="pageMaker.endPage +1">Next</a></li>
 						</c:if>
 
 					</ul>
 				</div>
+
+
+
+				<form id="actionForm" action="/board/list" method='get'>
+					<input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
+					<input type='hidden' name='amount' value = '${pageMaker.cri.pageNum }'>
+				</form>
+
 
 
 
@@ -128,44 +138,6 @@
 
 
 
-<!-- 모달창을 보여주는 작업  : jquery-->
-<!-- <!-- <script type="text/javascript">
-
-	$(document).ready(
-	
-	  function(){
-		
-		var result = '<c:out value="${result}"/>';
-		
-		checkModal(result);
-		
-		/* history.replaceState({}, null, null); */
-		
-		function checkModal(result){
-			
-			if (result === '' || history.state) {
-				return;
-			}
-			
-			if (parseInt(result)>0) {
-				$(".modal-body").html("게시글 "+parseInt(result)
-					+" 번이 등록되었습니다.");
-			}
-			
-			$("#myModal").modal("show");
-		}
-		
-		/* checkModal 끝 */
-		$("#regBtn").on("click", function() {
-							self.location = "/board/register";
-	});
-});
-	
-</script> -->
--->
-
-
-
 
 
 
@@ -196,14 +168,22 @@
 							$("#myModal").modal("show");
 						}
 
+						
+						
+						
+						
 						$("#regBtn").on("click", function() {
 
 							self.location = "/board/register";
 
 						});
 
+						
+						
 						var actionForm = $("#actionForm");
 
+						
+						
 						$(".paginate_button a").on(
 								"click",
 								function(e) {
@@ -216,7 +196,7 @@
 											.val($(this).attr("href"));
 									actionForm.submit();
 								});
-
+/* 
 						$(".move")
 								.on(
 										"click",
@@ -232,9 +212,9 @@
 													"/board/get");
 											actionForm.submit();
 
-										});
+										}); */
 
-						var searchForm = $("#searchForm");
+					/* 	var searchForm = $("#searchForm");
 
 						$("#searchForm button").on(
 								"click",
@@ -258,9 +238,12 @@
 
 									searchForm.submit();
 
-								});
-
+								}); */
 					});
+	
+			
+	
+	
 </script>
 
 <%@include file="../includes/footer.jsp"%>
