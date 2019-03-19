@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -37,7 +38,11 @@ public class BoardController {
 		
 		log.info("list : "+cri);
 		model.addAttribute("list", service.getList(cri));
-		
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		//게시글 목록을 조회할때 아래에 페이징 처리가 돼있어야 하므로 
+		//list메소드에서 PageDTO도 처리해준다. 
+		//근데 total이 123 : 전체 데이터수를 구하는 처리가 아직 이뤄지지 않았으므로
+		//임의로 123을 줌.
 	}
 	
 	

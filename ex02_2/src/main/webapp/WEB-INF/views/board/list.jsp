@@ -44,22 +44,48 @@
 
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-							
-							<td>
-							<a href='/board/get?bno=<c:out value="${board.bno}"/>' target='_blank'>
-							<c:out value="${board.title}" /></a></td>
-							
+
+							<td><a href='/board/get?bno=<c:out value="${board.bno}"/>'
+								target='_blank'> <c:out value="${board.title}" /></a></td>
+
 							<td><c:out value="${board.writer}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.regdate}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.updateDate}" /></td>
 						</tr>
-						
+
 					</c:forEach>
 				</table>
 
-				
+
+				<!-- 페이징 처리 -->
+
+				<div class='pull-right'>
+					<ul class="pagination">
+
+
+						<c:if test="${pageMAker.prev}">
+							<li class="paginate_button previous"><a href="#">Previous</a>
+							</li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li class="paginate_button"><a href="#">${num}</a></li>
+						</c:forEach>
+
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="#">Next</a></li>
+						</c:if>
+
+					</ul>
+				</div>
+
+
+
+
 
 
 				<!-- Modal  추가 -->
@@ -76,7 +102,8 @@
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save changes</button>
+								<button type="button" class="btn btn-primary">Save
+									changes</button>
 							</div>
 						</div>
 						<!-- /.modal-content -->
