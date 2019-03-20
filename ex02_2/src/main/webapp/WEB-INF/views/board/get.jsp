@@ -67,9 +67,18 @@
 					<button data-oper='list' class="btn btn-default">List</button>
 					
 					<form id='operForm' action="/board/modify" method="get">
+					
 						<input type="hidden" id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
+						<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+						<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+						<!-- 버튼을 누르면 form태그를 이용함.
+						버튼을 누르면서 pageNum과 amount가 같이 이동
+						
+						pageNum + amount : 리스트->조회페이지->수정/리스트
+						 -->
+						
 					</form>
-				
+					
 				
 			
 			</div>

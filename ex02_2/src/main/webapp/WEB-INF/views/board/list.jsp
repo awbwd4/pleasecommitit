@@ -45,8 +45,21 @@
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
 
-							<td><a href='/board/get?bno=<c:out value="${board.bno}"/>'
-								target='_blank'> <c:out value="${board.title}" /></a></td>
+							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'
+								target='_blank'> <c:out value="${board.title}" /></a></td> --%>
+							<!-- 조회 페이지에서 다시 목록페이지로 넘어올때, 무조건 1페이지로 돌아가는 문제를 해결하기 위해서는
+							조회페이지로 갈때, 현재 목록 페이지의 pageNum과  amount를 넘겨주어야 함. 
+							
+							위의 코드는, 페이지번호가 조회페이지까지 넘겨지지 않는 코드임. 
+							따라서 아래의 코드처럼 <a>태그에 이동하려는 게시물의 번호만을 갖게 수정함. 
+							실제 클릭은 js를 통해서 이루어짐. 
+							 -->
+						
+						
+							<td>
+							<a class='move' href='<c:out value="${board.bno}"/>'> 
+							<c:out value="${board.title}" /></a>
+							</td>
 
 							<td><c:out value="${board.writer}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
@@ -196,7 +209,26 @@
 											.val($(this).attr("href"));
 									actionForm.submit();
 								});
-/* 
+
+						
+						
+						$(".move").on("click", function(e){
+							
+							e.preventDefault();
+							actionForm.append("<input type='hidden' name='bno' value='"+
+									$(this).attr("href")+"'>");
+							actionForm.attr("action","/board/get");
+							actionForm.submit();
+							
+							
+						});
+						
+						
+						
+						
+						
+						
+						/* 
 						$(".move")
 								.on(
 										"click",
@@ -239,7 +271,7 @@
 									searchForm.submit();
 
 								}); */
-					});
+					}); 
 	
 			
 	

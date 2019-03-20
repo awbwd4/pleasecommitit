@@ -3,6 +3,7 @@ package org.zerock.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,9 +88,19 @@ public class BoardController {
 	
 	
 	@GetMapping({"/get","/modify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		
-		log.info("/get or modifi");
+		/*@ModelAttribute
+		 *자동으로/Model에/데이터를/지정한 이름으로 담아줌.
+		 *
+		 * (@ModelAttribute를 사용하지 않아도 파라미터가 된 객체는
+		 *  controller에서 화면으로 전달이 됨.
+		 *  다만 좀 더 명시적으로 이름을 지정하기 위함)
+		 * 
+		 * */
+		
+		
+		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
 		//수정, 삭제가 가능한 화면으로 이동.
 	}
