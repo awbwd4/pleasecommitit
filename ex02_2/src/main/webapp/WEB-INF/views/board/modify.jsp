@@ -21,6 +21,11 @@
 			<div class="panel-body">
 
 				<form role="form" action="/board/modify" method="post">
+				
+					
+					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+					<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+				
 
 					<!-- 게시물 번호 -->
 					<div class="form-group">
@@ -157,11 +162,31 @@ $(document).ready(function(){
 	      */
 	      
 	      formObj.attr("action", "/board/list").attr("method", "get");
+	      
+	      var pageNumTag = $("input[name='pageNum']").clone();
+	      var amountTag = $("input[name='amount']").clone();
+	    
+	      
+	      /* 
+	      	수정/삭제를 취소하고 다시 목록페이지로 이동
+	      	: 목록 페이지는 오직 pageNum과 amount만을 사용
+	      
+	      	만일 사용자가 list버튼을 클릭한다면
+	      	1.<form>태그에서 필요한 부분만 잠시 복사해서 보관(clone)),
+	      	2. <form>태그 내의 모든 내용은 지워버림(empty)
+	      	3. 이후에 다시 필요한 태그들만 추가해서 '/board/list' 호출
+	      	
+	      */
+	      
 	      formObj.empty();
 	     /*  
 	     /board/list로의 이동은 아무런 파라미터가 없음
 	     -> <form> 태그의 모든 내용은 삭제한 상태에서 submit()을 진행함.
 	     */
+	     
+		formObj.append(pageNumTag);	     
+		formObj.append(amountTag);	     
+	     
 	    }
 	    
 	    formObj.submit();

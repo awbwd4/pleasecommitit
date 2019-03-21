@@ -32,20 +32,29 @@ public class BoardController {
 		log.info("list");
 		model.addAttribute("list", service.getList());
 		
-	}
-	*/
+	}*/
+	
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model) {
 		
 		log.info("list : "+cri);
 		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
+		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		//게시글 목록을 조회할때 아래에 페이징 처리가 돼있어야 하므로 
 		//list메소드에서 PageDTO도 처리해준다. 
 		//근데 total이 123 : 전체 데이터수를 구하는 처리가 아직 이뤄지지 않았으므로
 		//임의로 123을 줌.
-	}
+		
+		int total = service.getTotal(cri);
 	
+		log.info("total : "+total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+	
+	
+	
+	}
 	
 	
 	
@@ -81,12 +90,6 @@ public class BoardController {
 	 }
 	
 	
-	
-	
-	
-	
-	
-	
 	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		
@@ -106,7 +109,8 @@ public class BoardController {
 	}
 	
 	@PostMapping("modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri,
+			RedirectAttributes rttr) {
 		
 		log.info("modify : "+ board);
 		
@@ -118,18 +122,36 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		
+		
 		return "redirect:/board/list";
 	}
 	
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno,
-			RedirectAttributes rttr) {
+			@ModelAttribute("cri") Criteria cri,RedirectAttributes rttr) {
 		
 		log.info("remove...................."+bno);
 		
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");}
+		
+		
+		
+		/*수정 삭제 뒤, 다시 board/list로 이동할 때
+		 * 1페이지로 돌아가지 않기 위해서는
+		 * 처음 목록 페이지에서 가져온 pageNum과 amount값을
+		 *  board/redirect로 돌아가는 url에 추가해주여야함
+		 *  
+		 *  이를 위해 redirectAttribute에다가 이것을 추가해주는것.
+		 * 
+		 * 
+		*/
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 
 		return "redirect:/board/list";
