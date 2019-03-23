@@ -132,7 +132,7 @@ public class BoardController {
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno,
-			@ModelAttribute("cri") Criteria cri,RedirectAttributes rttr) {
+			@ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		
 		log.info("remove...................."+bno);
 		
