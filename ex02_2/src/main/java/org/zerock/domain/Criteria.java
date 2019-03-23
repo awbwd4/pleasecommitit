@@ -13,6 +13,12 @@ public class Criteria {
 	private int amount;//한 페이지 당 몇 개의 데이터를 보여줄 것인지
 	
 	
+	private String type;//검색 조건
+	private String keyWord;//검색 키워드
+	
+	
+	
+	
 	public Criteria() {
 		this(1,10);
 	}
@@ -23,19 +29,17 @@ public class Criteria {
 		this.pageNum = pageNum;
 		this.amount = amount;
 	}
-	/*
-	public Criteria() {
-		this(1, 10);
-	}
 	
 	
-	public Criteria(int pageNum, int amount) {
+	
+	public String[] getTypeArr() {
 		
-		this.pageNum = pageNum;
-		this.amount = amount;
+		return type == null? new String[] {}:type.split("");
 		
+		//type값이 널일때 새로운 String 타입 배열객체 생성 후 리턴
+		//null이 아니면 split?? 구분자 없음?
+		//T,C,W셋을 조합해서 쓸 수 있음. 
 	}
-	*/
 	
 
 }
