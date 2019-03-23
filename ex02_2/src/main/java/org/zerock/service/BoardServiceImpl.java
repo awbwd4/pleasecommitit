@@ -89,7 +89,7 @@ public class BoardServiceImpl implements BoardService{
 		
 		log.info("//////////////////////////////////////////////////////////getList with criteria : "+cri);
 		
-		return mapper.getList();
+		return mapper.getListWithPaging(cri);
 	}
 
 	@Override
