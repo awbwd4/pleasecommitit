@@ -1,5 +1,7 @@
 package org.zerock.domain;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,6 +42,24 @@ public class Criteria {
 		//null이 아니면 split?? 구분자 없음?
 		//T,C,W셋을 조합해서 쓸 수 있음. 
 	}
+	
+	
+	
+	/* UriComponentsBuilder
+	 * 여러개의 파라미터들을 연결해서 URL의 형태로 만들어주는 기능
+	 * */
+	public String getListLink() {
+		
+		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
+				.queryParam("pageNum", this.pageNum)
+				.queryParam("amount", this.getAmount())
+				.queryParam("type", this.getType())
+				.queryParam("keyword", this.getKeyword());
+		
+		return builder.toUriString();
+	
+	}
+	
 	
 
 }

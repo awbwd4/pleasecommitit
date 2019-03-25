@@ -121,13 +121,21 @@ public class BoardController {
 			 * */
 			rttr.addFlashAttribute("result", "success");
 		}
-		
+		/*
+		 * Criteria에서 UriComponentsBuilders를 사용하기 전
+		 * 
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
-		
+
 		return "redirect:/board/list";
+		*/
+		
+		
+		
+		//Criteria에서 UriComponentsBuilders를 사용한 후 
+		return "redirect:/board/list"+cri.getListLink();
 	}
 	
 	
@@ -151,12 +159,16 @@ public class BoardController {
 		 * 
 		 * 
 		*/
+		
+		/*
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
-		
 
 		return "redirect:/board/list";
-				
+		*/	
+
+		return "redirect:/board/list"+cri.getListLink();
+	
 	}
 	
 	
