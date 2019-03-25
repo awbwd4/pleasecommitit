@@ -90,7 +90,7 @@ public class BoardController {
 	 }
 	
 	
-	@GetMapping({"/get","/modify"})
+	@GetMapping({"/get","/modify"})//조회 or 수정 ""페이지""로 이동
 	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		
 		/*@ModelAttribute
@@ -108,7 +108,7 @@ public class BoardController {
 		//수정, 삭제가 가능한 화면으로 이동.
 	}
 	
-	@PostMapping("modify")
+	@PostMapping("modify")//수정 후 ""DB에 반영""하기 위한 컨트롤러, 처리 후 목록 페이지로 redirect
 	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri,
 			RedirectAttributes rttr) {
 		
@@ -124,7 +124,8 @@ public class BoardController {
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
-		
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 	}

@@ -71,6 +71,11 @@
 						<input type="hidden" id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
 						<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 						<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+						
+						<input type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'/>
+						<input type='hidden' name='type' value='<c:out value="${cri.type}"/>'/>
+						
+						
 						<!-- 버튼을 누르면 form태그를 이용함.
 						버튼을 누르면서 pageNum과 amount가 같이 이동
 						
