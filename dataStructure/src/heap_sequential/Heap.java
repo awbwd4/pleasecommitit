@@ -7,6 +7,7 @@ public class Heap {
 	private int itemHeap[];
 
 
+
 	public Heap() {
 		heapSize = 0;
 		itemHeap = new int [50];
@@ -80,7 +81,6 @@ public class Heap {
 		return item;
 		//힙 삭제 메서드는 삭제된 루트노드를 리턴한다. 
 	}
-	
 	
 	
 	
