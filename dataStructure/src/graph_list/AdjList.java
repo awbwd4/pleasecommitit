@@ -33,6 +33,7 @@ public class AdjList {
 			System.out.printf("\n정점 %c의 인접리스트 ", i+65);
 			gNode = head[i];
 			while (gNode!= null) {
+				//System.out.printf("-> %c", gNode.vertex+65);
 				System.out.printf("-> %c", gNode.vertex+65);
 				gNode = gNode.link;
 			}
