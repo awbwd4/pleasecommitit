@@ -39,11 +39,13 @@ public class Ex10_2 {
 		g9.insertEdge(6, 3);
 		
 		
-		System.out.printf("\n 그래프 g9의 인접리스트 : ");
-		g9.printAdjList();
+		//System.out.printf("\n 그래프 g9의 인접리스트 : ");
+		//g9.printAdjList();
 		
 		
-		g9.DES(0);
+		//g9.DFS(0);
+		
+		g9.BFS(0);
 		
 		
 	}
