@@ -26,7 +26,6 @@ public class Recursion {
 		System.out.println(length("qwerqwer"));
 		
 		printCharsReverse("asdf");
-		 */
 		
 		printInBinary(10);
 	
@@ -35,7 +34,10 @@ public class Recursion {
 		System.out.println(sum(data.length, data));
 		
 		System.out.println("findMax2 : "+findMax2(data, 0, data.length-1));
+		 */
 		System.out.println("findMax3 : "+findMax3(data, 0, data.length-1));
+
+		System.out.println();
 		
 	}
 /*
@@ -86,7 +88,6 @@ public class Recursion {
 		
 	}
 
- */
 	
 	public static void printInBinary(int n) {
 		
@@ -110,7 +111,9 @@ public class Recursion {
 		
 		
 	}
+ */
 	
+	/*	
 	public static int search_loop(int[] data, int length, int target) {
 		//재귀가 아닌 루프를 쓸때는 0~n-1 에서 0을 파라미터로 넣어주지 않음. 이것이 암시적 매개변수
 		for (int i = 0; i < length; i++) {
@@ -127,7 +130,6 @@ public class Recursion {
 	
 	
 	
-/*	
 	public static int search(int[] data, int target, int begin, int end) {
 		//begin이 주어짐. 명시적 매개변수
 		if (begin > end) {
@@ -140,7 +142,6 @@ public class Recursion {
 		
 		
 	}
-	*/
 	
 	public static int search1(int[] data, int target, int begin, int end) {
 		
@@ -211,6 +212,7 @@ public class Recursion {
 		}
 	
 	}
+	 */
 	
 	public static int findMax3(int[] data, int begin, int end) {
 		
@@ -229,6 +231,33 @@ public class Recursion {
 		
 		
 	}
+	
+	public static int binarySearch(String[] items, String target, int begin, int end) {
+		
+		if (begin>end) {
+			
+			return -1;
+		
+		} else {
+			
+			int middle = (begin+end)/2;
+			int compResult = target.compareTo(items[middle]);
+			
+			if (compResult == 0) {
+				
+				return middle;
+			
+			}else if(compResult<0){
+			
+				return binarySearch(items, target, begin, middle-1);
+			
+			}else {
+			
+				return binarySearch(items, target, middle+1, end);
+			}
+		}
+	}
+	
 	
 	
 	
