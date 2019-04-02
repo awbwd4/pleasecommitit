@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	static int dp[] = new int[1001];
+	static int dp[] = new int[1002];
 
 	public static void main(String[] args) {
 
@@ -29,9 +29,11 @@ public class Main {
 
 		for (int i = 3; i <= n; i++) {
 			if (i % 2 == 0) {
-				result += 2 * tyling(n - 1);
+				
+				result += (2 * tyling(n - 1));
 			}
 		}
+		
 		return dp[n] = result;
 
 	}

@@ -2,9 +2,17 @@ package recursion;
 
 public class Recursion {
 
+	/* 순환적 알고리즘 설계
+	 * 1. 적어도 하나의 base case, 즉 순환되지 않고 종료되는 case가 있어야 함.
+	 * 2. 모든 case는 결국 base case로 수렴돼야 함.
+	 * 3. 메소드 내에서 쓰이는 모든 변수들을 다 파라미터로 지정해주어야 함.(명시적 매개변수) 
+	 * */
+	
+	
+	
 	public static void main(String[] args) {
 		
-		int data[] = {1,2,3,4,5};
+		int data[] = {123,1341,125,24251,123,1221};
 		
 		
 		/*
@@ -26,6 +34,8 @@ public class Recursion {
 		
 		System.out.println(sum(data.length, data));
 		
+		System.out.println("findMax2 : "+findMax2(data, 0, data.length-1));
+		System.out.println("findMax3 : "+findMax3(data, 0, data.length-1));
 		
 	}
 /*
@@ -101,8 +111,25 @@ public class Recursion {
 		
 	}
 	
-	public static int search(int[] data, int target, int begin, int end) {
+	public static int search_loop(int[] data, int length, int target) {
+		//재귀가 아닌 루프를 쓸때는 0~n-1 에서 0을 파라미터로 넣어주지 않음. 이것이 암시적 매개변수
+		for (int i = 0; i < length; i++) {
+			if (data[i] == target) {
+				return i;
+			}
+		}
+		return -1;
 		
+	}
+	
+	
+	
+	
+	
+	
+/*	
+	public static int search(int[] data, int target, int begin, int end) {
+		//begin이 주어짐. 명시적 매개변수
 		if (begin > end) {
 			return -1;
 		}else if(target == data[begin]){
@@ -113,6 +140,96 @@ public class Recursion {
 		
 		
 	}
+	*/
+	
+	public static int search1(int[] data, int target, int begin, int end) {
+		
+		if (begin>end) {//begin == end는 데이터가 1개라는 것. 
+			return -1;
+		}else if(target == data[begin]) {
+			return begin;
+		}else {
+			return search1(data, target, begin+1, end);
+		}
+	}
+	
+
+	public static int search2(int[] data, int target, int begin, int end) {
+		
+		if (begin<end) {
+			return -1;
+		}else if (target == data[end]) {
+			return end;
+		}else {
+			return search2(data, target, begin, end-1);
+		}
+	}
+	
+	//binary search와는 다름
+	public static int search3(int[] data, int target, int begin, int end) {
+		
+		int mid = (begin+end)/2;
+		int index;
+		
+		if (begin > end) {
+			return -1;
+		}else{
+		
+			if (data[mid]==target) {
+				return mid;
+			}
+			
+			index = search3(data, target, begin, mid-1);
+			//mid 앞부분 먼저 검색
+			
+			if (index != -1) {
+				return index;//index가 -1이 아니다 : mid앞 부분에 target값이 존재한다. 
+			}else {
+				//mid 앞 부분에 타겟값이 존재하지 않으면, 이제 mid 뒷부분 검색. 
+				return search3(data, target, mid+1, end);
+			}
+		}
+		
+	}
+	
+	public static int findMax1(int[] data, int begin, int end) {
+		
+		if (begin == end) {
+			return data[begin];//데이터가 1개밖에 없으므로
+		} else {
+			return Math.max(data[begin], findMax1(data, begin+1, end));
+		}
+	}
+	
+	
+	public static int findMax2(int[] data, int begin, int end) {
+	
+		if (begin == end) {
+			return data[begin];
+		} else {
+			return Math.max(data[begin], findMax2(data, begin+1, end));
+		}
+	
+	}
+	
+	public static int findMax3(int[] data, int begin, int end) {
+		
+		int middle = (begin+end)/2;
+		
+		if (begin == end) {
+			return data[begin];
+		}else {
+			
+			int max1 = findMax3(data, begin, middle);
+			int max2 = findMax3(data, middle+1, end);
+			return Math.max(max1, max2);
+			
+			
+		}
+		
+		
+	}
+	
 	
 	
 
