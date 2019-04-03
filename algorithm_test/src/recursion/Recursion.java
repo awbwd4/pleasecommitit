@@ -16,6 +16,7 @@ public class Recursion {
 		
 		
 		/*
+		 */
 		int result = sum(4);
 
 		System.out.println(result);
@@ -34,13 +35,13 @@ public class Recursion {
 		System.out.println(sum(data.length, data));
 		
 		System.out.println("findMax2 : "+findMax2(data, 0, data.length-1));
-		 */
 		System.out.println("findMax3 : "+findMax3(data, 0, data.length-1));
 
 		System.out.println();
 		
 	}
 /*
+ */
 	public static int sum(int n) {
 		// 이 함수의 미션은 0~n 까지의 합을 구하는 것
 		if (n <= 0) {
@@ -111,9 +112,9 @@ public class Recursion {
 		
 		
 	}
- */
 	
 	/*	
+	 */
 	public static int search_loop(int[] data, int length, int target) {
 		//재귀가 아닌 루프를 쓸때는 0~n-1 에서 0을 파라미터로 넣어주지 않음. 이것이 암시적 매개변수
 		for (int i = 0; i < length; i++) {
@@ -212,7 +213,6 @@ public class Recursion {
 		}
 	
 	}
-	 */
 	
 	public static int findMax3(int[] data, int begin, int end) {
 		
@@ -233,6 +233,8 @@ public class Recursion {
 	}
 	
 	public static int binarySearch(String[] items, String target, int begin, int end) {
+		//이진탐색의 개념자체가 재귀적 성격을 갖는다.
+		
 		
 		if (begin>end) {
 			
