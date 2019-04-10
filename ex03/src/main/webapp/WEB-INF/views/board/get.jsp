@@ -95,6 +95,37 @@
 </div>
 
 
+<!-- reply.js -->
+<script type = "text/javascript" src = "/resources/js/reply.js"></script>
+
+
+<!-- reply.js에 있는 replyService변수의 값을 콘솔에 출력. -->
+<script type="text/javascript">
+
+	/* $(document).ready(function(){
+	
+		console.log(replyService);
+		
+	}) */
+	console.log("=================================");
+	console.log("JS TEST");
+	
+	var bnoValue = '<c:out value="${board.bno}"/>';
+	
+	
+	//for replyService add test
+	replyService.add(
+		{reply:"JS TEST", replyer:"tester", bno:bnoValue}		
+		,
+		function(result){
+			alert("RESULT : "+result);
+		}
+	);
+	
+</script>
+
+
+
 
 <script type="text/javascript">
 <!--
@@ -120,12 +151,9 @@
 			
 		});
 		
-		
 	});
 
 </script>
-
-
 
 
 <%@include file="../includes/footer.jsp" %>
