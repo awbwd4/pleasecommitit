@@ -112,6 +112,16 @@
 	
 	var bnoValue = '<c:out value="${board.bno}"/>';
 	
+	replyService.getList({bno:bnoValue, page:1}, function(list){
+		
+		for (var i = 0, len = list.length||0; i < len ; i++) {
+			console.log(list[i]);
+		}
+	});
+	
+	
+	
+	
 	
 	//for replyService add test
 	replyService.add(

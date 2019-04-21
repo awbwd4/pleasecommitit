@@ -32,11 +32,42 @@ var replyService = (function(){
 					if (error) {
 						error(er);
 					}
-				}
+				} 
 				
 			//ajax끝	
 			})			
 		}
 			
-		return {add:add};
+			
+		//댓글의 목록 처리 : getJSON()의 사용
+		
+		function getList(param, callback, error){
+			
+			var bno = param.bno;
+			var page = param.page || 1;
+			
+			
+			//url 호출시 확장자를 .json으로 요구함. 
+			$.getJSON("/replies/pages/" + bno + "/" +page+".json",
+				function(data){
+					if(callback){
+						callback(data);
+					}
+			}).fail(function(xhr, status, err){
+				if(error){
+					error();
+				}
+				
+			});
+		}
+			
+			
+
+		
+		return {
+			add:add,
+			getList : getList
+		};
+
+
 })();
