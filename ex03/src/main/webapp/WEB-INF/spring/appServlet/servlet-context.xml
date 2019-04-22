@@ -22,7 +22,13 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="org.zerock.controller" />
-	
+	<!-- base-packge="org.zerock.controller"였을 때는 안되던 것이
+		모든 패키지를 베이스패키지로 바꾸니 됨 
+		왜????
+		
+		이번엔 왜 또 돼????????
+		
+	 -->
 	
 	
 </beans:beans>

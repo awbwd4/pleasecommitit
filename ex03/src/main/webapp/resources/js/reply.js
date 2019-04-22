@@ -1,5 +1,6 @@
-/**
- * 
+/*
+	댓글 관련 모듈 패턴.
+	
  */
 
 console.log("reply module............");
@@ -10,8 +11,8 @@ var replyService = (function(){
 			return {name:"AAAA"};
 		}*/
 		
-			function add(reply, callback){
-			console.log("reply........................");
+			function add(reply, callback, error){
+				console.log("reply 달기 시발ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ");
 			
 			$.ajax({
 				
@@ -40,7 +41,7 @@ var replyService = (function(){
 			
 			
 		//댓글의 목록 처리 : getJSON()의 사용
-		
+		 
 		function getList(param, callback, error){
 			
 			var bno = param.bno;
@@ -53,16 +54,34 @@ var replyService = (function(){
 					if(callback){
 						callback(data);
 					}
-			}).fail(function(xhr, status, err){
+			}).fail(function(xhr, status, err) {
 				if(error){
 					error();
-				}
-				
+					}
 			});
 		}
 			
 			
-
+		
+		function remove(){
+			
+			$.ajax({
+				
+				type : 'delete',
+				url : '/replies/'+rno,
+				success : function(deleteResult, status, xhr){
+					
+					if (callback) {
+						callback(deleteResult);
+					}
+				},
+				error : function(xhr, status, er){
+					if(error){
+						error(er);
+					}
+				}
+			});
+		}
 		
 		return {
 			add:add,

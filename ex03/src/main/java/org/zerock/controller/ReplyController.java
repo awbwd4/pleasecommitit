@@ -113,9 +113,9 @@ public class ReplyController {
 			produces = {MediaType.TEXT_PLAIN_VALUE}
 			)
 	public ResponseEntity<String> modify(
-			@RequestBody ReplyVO vo,
-			@PathVariable("rno") Long rno
-			){
+						@RequestBody ReplyVO vo,
+						@PathVariable("rno") Long rno){
+		
 		vo.setRno(rno);
 		
 		log.info("rno : "+rno);
