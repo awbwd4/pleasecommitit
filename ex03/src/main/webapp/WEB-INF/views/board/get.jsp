@@ -92,6 +92,63 @@
 </div>
 
 
+<!-- 댓글 목록들 -->
+
+<div class = 'row'>
+	<div class="col-lg-12">
+	
+		<div class = "panel panel-default">
+		
+			<div class="panel-heading">
+				<i class="fa fa-comments fa-fw"></i> Reply
+			</div>
+		
+			<!-- panel heading -->
+			<div class="panel-body">
+			
+				<ul class="chat">
+					<!-- start reply -->
+					<li class="left clearfix" data-rno='12'>
+						<div>
+							<div class="header">
+								<strong class="primary-font">user000</strong>
+								<small class="pull-right text-muted">2019-04-23 13:13</small>
+							</div>	
+							<p>good job!</p>					
+						</div>					
+					</li>
+				</ul>
+				<!-- ./ end ul -->
+			
+			</div>
+		
+		<!-- /. panel .chat-panel -->
+		</div>
+	
+	</div>
+	
+<!-- end of row -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- reply.js -->
 <script type = "text/javascript" src = "/resources/js/reply.js"></script>
 
@@ -134,7 +191,6 @@
 	
 	//24번 댓글 삭제 테스트.
 	/*
-	*/	
 	 replyService.remove(41, 
 		/////////////	
 		function(count) {
@@ -150,6 +206,7 @@
 		alert('ERROR.............');
 	}); 
 			
+	*/	
 	
 	
 	//62번 댓글 수정
