@@ -110,7 +110,7 @@
 	var bnoValue = '<c:out value="${board.bno}"/>';
 	
 	
-	
+	/* 
 	replyService.getList({bno:bnoValue, page:1}, function(list){
 		
 		for (var i = 0, len = list.length||0; i < len ; i++) {
@@ -118,7 +118,7 @@
 		}
 	}); 
 	
-	
+ */	
 	//for replyService add test
 	/* replyService.add(
 		{reply:"JS TEST", replyer:"tester", bno:bnoValue}		
@@ -128,18 +128,25 @@
 		}
 	); */
 	
-	/* 
-	replyService.remove(23, function(count){
+	
+	//24번 댓글 삭제 테스트.
+	replyService.remove(24, 
+		/////////////	
+		function(count) {
 		
 		console.log(count);
 		
 		if(count === "success"){
 			alert("removed");
 		}
-	}, function(err){
+	}, 
+	////////
+	function(err){
 		alert('ERROR.............');
-	});
-			 */
+	}
+	
+	);
+		
 			
 	
 	

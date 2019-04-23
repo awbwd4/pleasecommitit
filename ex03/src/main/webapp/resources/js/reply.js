@@ -63,7 +63,7 @@ var replyService = (function(){
 			
 			
 		
-		function remove(){
+		function remove(rno, callback, error){
 			
 			$.ajax({
 				
@@ -85,8 +85,7 @@ var replyService = (function(){
 		
 		return {
 			add:add,
-			getList : getList
+			getList : getList,
+			remove : remove
 		};
-
-
 })();
