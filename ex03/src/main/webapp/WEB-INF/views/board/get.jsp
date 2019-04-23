@@ -110,46 +110,64 @@
 	var bnoValue = '<c:out value="${board.bno}"/>';
 	
 	
-	/* 
+	/*
 	replyService.getList({bno:bnoValue, page:1}, function(list){
 		
 		for (var i = 0, len = list.length||0; i < len ; i++) {
 			console.log(list[i]);
 		}
 	}); 
+	*/
 	
- */	
+	
+	
 	//for replyService add test
-	/* replyService.add(
+	/*
+	 replyService.add(
 		{reply:"JS TEST", replyer:"tester", bno:bnoValue}		
 		,
 		function(result){
 			alert("RESULT : "+result);
 		}
-	); */
-	
+	); 
+	*/
 	
 	//24번 댓글 삭제 테스트.
-	replyService.remove(24, 
+	/*
+	*/	
+	 replyService.remove(41, 
 		/////////////	
 		function(count) {
 		
 		console.log(count);
 		
 		if(count === "success"){
-			alert("removed");
+			alert("REMOVED.............");
 		}
 	}, 
 	////////
 	function(err){
 		alert('ERROR.............');
-	}
-	
-	);
-		
+	}); 
 			
 	
 	
+	//62번 댓글 수정
+	//클릭한 게시글에 있는 댓글의 번호를 매칭하지 않아서?
+	/*
+	replyService.update({rno : 62,
+		bno : bnoValue,
+		reply : "Modified reply............"},
+		function(result){
+			alert("수정 완료..........");
+		}
+	);
+	
+	//댓글 조회 : 댓글의 번호만 전달함. 
+	replyService.get(10, function(data){
+		console.log(data);
+	});
+*/
 	
 	
 </script>
