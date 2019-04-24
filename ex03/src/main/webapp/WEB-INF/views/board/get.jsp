@@ -239,6 +239,45 @@
 	$(document).ready(function(){
 		
 		var operForm = $("#operForm");
+		var bnoValue = '<c:out value="${board.bno}"/>';
+		var replyUL = $(".chat");
+		
+		
+		showList(1);
+		
+		
+		function showList(page){
+			//showList : 페이지 번호를 파라미터로 받도록 설계.
+			//파라미터가 없는 경우에는 자동으로 1페이지가 되도록 설정. 
+			replyService.getList({bno:bnoValue, page: page||1}, function(list){
+				
+				var str = "";
+				
+				if (list == null || list.length == 0) {
+					
+					replyUL.html("");
+					
+					
+					return;
+				}
+				
+				for (var i = 0, len = list.length || 0 ; i < len ; i++) {
+					
+					str += "<li class='left clearfix' data-rno = '"+list[i].rno+"'>";	
+					str += "	<div><div class='header'><strong class='primary-font'>"+list[i].replyer+"</strong>";
+			//		str += "	<small class='pull-right text-muted'>"+replyService.displayTime(list[i].replyDate)+"</small></div>";
+					str += "	<small class='pull-right text-muted'>"+list[i].replyDate+"</small></div>";
+					str += "	<p>"+list[i].reply+"</p></div></li>";
+				}
+			
+				replyUL.html(str);
+			
+			});//end function
+
+		}//end showList
+		
+		
+		
 		
 		
 		$("button[data-oper='modify']").on("click", function(e){
@@ -255,6 +294,13 @@
 			operForm.submit();
 			
 		});
+		
+		
+		
+		
+		
+		
+		
 		
 	});
 
