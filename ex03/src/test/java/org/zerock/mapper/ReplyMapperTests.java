@@ -93,6 +93,8 @@ public class ReplyMapperTests {
 	}
 	 */
 	
+	
+	/*
 	@Test
 	public void testList() {
 		
@@ -104,6 +106,32 @@ public class ReplyMapperTests {
 	
 		replies.forEach(reply -> log.info(reply));
 	}
+	 */
+	@Test
+	public void testList2() {
+		
+		Criteria cri = new Criteria(2, 10);
+		
+		//5046509L
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, 5046509L);
+		
+		replies.forEach(reply -> log.info(reply));
+		
+		
+	}
+	
+	@Test
+	public void testCount() {
+		
+		long bno = 5046509L;
+		
+		int count = mapper.getCountByBno(bno);
+		
+		log.info(bno+"번 게시글 댓글 수==============================count : "+count);
+		
+	}
+	
+	
 	
 	
 }
