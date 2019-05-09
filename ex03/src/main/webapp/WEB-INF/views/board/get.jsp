@@ -113,7 +113,7 @@
 				<!-- 개별 댓글 창 -->
 				<ul class="chat">
 					<!-- start reply -->
-					<li class="left clearfix" data-rno='12'>
+					<!-- <li class="left clearfix" data-rno='12'>
 						<div>
 							<div class="header">
 								<strong class="primary-font">user000</strong> <small
@@ -121,12 +121,17 @@
 							</div>
 							<p>good job!</p>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 				<!-- ./ end ul -->
 
 			</div>
 
+		<div class="panel-footer">
+		<!-- 댓글 페이지 번호를 출력하는 부분-->
+			
+		
+		</div>
 			<!-- /. panel .chat-panel -->
 		</div>
 
@@ -274,212 +279,328 @@
 <script type="text/javascript">
 <!--
 	//-->
-	$(document)
-			.ready(
-					function() {
-
-						var operForm = $("#operForm");
-						var bnoValue = '<c:out value="${board.bno}"/>';
-						var replyUL = $(".chat");
-
-						showList(1);
-
-						function showList(page) {
-							//showList : 페이지 번호를 파라미터로 받도록 설계.
-							//파라미터가 없는 경우에는 자동으로 1페이지가 되도록 설정. 
-							replyService
-									.getList(
-											{
-												bno : bnoValue,
-												page : page || 1
-											},
-											function(list) {
-
-												var str = "";
-
-												if (list == null
-														|| list.length == 0) {
-
-													replyUL.html("");
-
-													return;
-												}
-
-												for (var i = 0, len = list.length || 0; i < len; i++) {
-
-													str += "<li class='left clearfix' data-rno = '"+list[i].rno+"'>";
-													str += "	<div><div class='header'><strong class='primary-font'>"
-															+ list[i].replyer
-															+ "</strong>";
-													//		str += "	<small class='pull-right text-muted'>"+replyService.displayTime(list[i].replyDate)+"</small></div>";
-													str += "	<small class='pull-right text-muted'>"
-															+ list[i].replyDate
-															+ "</small></div>";
-													str += "	<p>"
-															+ list[i].reply
-															+ "</p></div></li>";
-												}
-
-												replyUL.html(str);
-
-											});//end function
-
-						}//end showList
-
-						$("button[data-oper='modify']").on(
-								"click",
-								function(e) {
-
-									operForm.attr("action", "/board/modify")
-											.submit();
-
-								});
-
-						$("button[data-oper='list']").on("click", function(e) {
-
-							operForm.find("#bno").remove();
-							operForm.attr("action", "/board/list");
-							operForm.submit();
-
-						});
-
+	$(document).ready(
+					
+		function() {
+				console.log("자바스크립트 준비");
 						
-						////////////모달창 관련 함수들////////////////////
-						var modal = $(".modal");
-						var modalInputReply = modal.find("input[name='reply']");
-						var modalInputReplyer = modal.find("input[name='replyer']");
-						var modalInputReplyDate = modal.find("input[name='replyDate']");
-						
-						var modalModBtn = $("#modalModBtn");
-						var modalRemoveBtn = $("#modalRemoveBtn");
-						var modalRegisterBtn = $("#modalRegisterBtn");
-						var modalCloseBtn = $("#modalCloseBtn");
+			var operForm = $("#operForm");
+			var bnoValue = '<c:out value="${board.bno}"/>';
+			var replyUL = $(".chat");
+
+			showList(1);
+
+			function showList(page) {
+				//showList : 페이지 번호를 파라미터로 받도록 설계.
+				//파라미터가 없는 경우에는 자동으로 1페이지가 되도록 설정. 
+							
+				console.log("show list" + page);
+							
+				replyService.getList(
+								{ bno : bnoValue, page : page || 1 },
+											
+								function(replyCnt, list) {//getList에 들어가는 callBack 함수
+													
+									console.log("getList 함수");
+									console.log("replyCnt : " + replyCnt);
+									console.log("list : "+list);
+									console.log(list);
+												
+												
+									if (list == null) {
+										console.log("객체 전달 안됨");
+									}else{
+										console.log("뭐가 있긴 있음");
+									}
+												
+												
+												
+									if (page == -1) {
+									pageNum = Math.ceil(replyCnt/10.0);
+										//page == -1이면
+										//마지막 페이지를 찾아서 다시 호출하게 됨.
+										showList(pageNum);
+										return;
+									}
+
+												
+									var str = "";
+
+									if (list == null || list.length == 0) {
+
+										//replyUL.html("");
+
+										return;
+									}
+
+									for (var i = 0, len = list.length || 0; i < len; i++) {
+
+										str +="<li class='left clearfix' data-rno='"+list[i].rno+"'>";
+										
+										str +="  <div><div class='header'><strong class='primary-font'>["
+									    	   +list[i].rno+"] "+list[i].replyer+"</strong>"; 
+									    	   
+									    str +="    <small class='pull-right text-muted'>"
+									               +replyService.displayTime(list[i].replyDate)+"</small></div>";
+											
+									    str +="    <p>"+list[i].reply+"</p></div></li>";
+									}
+
+									replyUL.html(str);
+												
+												
+									showReplyPage(replyCnt);
+
+								});//end function
+											
+			}//end showList
+
 						
 						
 						
-						$("#addReplyBtn").on("click", function(e){
-							
-							modal.find("input").val;
-							modalInputReplyDate.closest("div").hide();
-							//.closest() 상위요소를 찾아주는 함수. 선택자를 기준으로 가장 가까운 상위 요소.
-							//modalInputReplyDate를 기준으로 여기서는 가장 가까운 div를 찾아줌.
-							//이경우 replyDate가 속해있는 div 자체를 숨김
-							
-							
-							modal.find("button[id != 'modalCloseBtn']").hide();
-							//닫기버튼을 제외한 모든 버튼 숨기기
-							
-							modalRegisterBtn.show();//등록버튼은 보여주기
-							
-							$(".modal").modal("show");							
-							
-						});
+
+			/* 댓글 페이지 번호 출력 로직 */
 						
+			var pageNum = -1;
+			var replyPageFooter = $(".panel-footer");
 						
-						modalRegisterBtn.on("click", function(){
+			function showReplyPage(replyCnt){
 							
-							var reply = {
-									reply : modalInputReply.val(),
-									replyer : modalInputReply.val(),
-									bno : bnoValue
-							};
+				console.log("showReplyPage시작")
 							
 							
-							replyService.add(reply, function(result){
+				var endNum = Math.ceil(pageNum/10.0)*10;
+				var startNum = endNum -9;
+							
+							
+				var prev = startNum != 1;
+				//현재 페이지 넘버가 1인지를 판단.
+				//1이 아니라야 앞으로 넘기는게 가능함
+				var next = false;
+						
+				if (endNum * 10 >= replyCnt) {
+					endNum = Math.ceil(replyCnt/10.0);
+				}
+							
+				if (endNum * 10 < replyCnt) {
+					next = true;
+				}
+							
+
+				var str = "<ul class='pagination pull-right'>";
+							
+				////앞으로 가는 버튼//
+				if(prev){
+					str += "<li class='page-item'><a class = 'page-link' href = '"+(startNum -1)+"'>Previous</a></li>"
+				}
+							
+							
+				for (var i = startNum; i <= endNum ; i++) {
 								
-								alert(result);
+					var active = pageNum == i ? "active": "";
+					//현재 pageNum이 i 와 같다면 "active"를 넣음.
 								
-								modal.find("input").val("");
-								//댓글 등록이 성공하면 경고창으로 결과를 알려주고, 입력 항목을 비움.
-								modal.modal("hide");//모달창을 닫는다.
+					str += "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
 								
-								showList(1);
-								//새 댓글이 달렸으므로 댓글 목록 갱신
-								
-								
-							});
-						});
-						
-						
-						
-						
-						/* 댓글 클릭시 수정/삭제가 가능한 모달 창이 뜨도록 */
-						$(".chat").on("click", "li", function(e){
+				}
+
 							
-							var rno = $(this).data("rno");
+				////뒤로 가는 버튼//
+				if(next){
+					str += "<li class='page-item'><a class = 'page-link' href = '"+(endNum + 1)+"'>Next</a></li>"
+								
+				}
 							
 							
-							replyService.get(rno, function(reply){
-								
-								modalInputReply.val(reply.reply);
-								
-								modalInputReplyer.val(reply.replyer);
-								modalInputReplyDate.val(replyService.displayTime(reply.replyDate))
-									.attr("readonly", "readonly");
-								
-								modal.data("rno", reply.rno);
-								
-								modal.find("button[id != 'modalCloseBtn']").hide();
-								modalModBtn.show();
-								modalRemoveBtn.show();
-								
-								$(".modal").modal("show");
-								
-							});
 							
-						});
+				str += "</ul></div>"
+				//페이징 끝
+							
+				console.log("str : "+str);
+							
+				replyPageFooter.html(str);
+				//replyPageFooter에 str
+						
+			}
 						
 						
-						/* 댓글 수정/삭제 이벤트 처리 */
-						modalModBtn.on("click", function(e){
+						
+						
+			replyPageFooter.on("click","li a", function(e){
+			       e.preventDefault();
+			       console.log("page click");
+						       
+			       var targetPageNum = $(this).attr("href");
+						       
+			       console.log("targetPageNum: " + targetPageNum);
+						       
+			       pageNum = targetPageNum;
+						       
+			       showList(pageNum);
+			     });     
+						
+						
+						
+						
+						
+						
+						
+			///////////////////////////////////////////
+						
+					
+
+						
+			////////////모달창 관련 함수들////////////////////
+			var modal = $(".modal");
+			var modalInputReply = modal.find("input[name='reply']");
+			var modalInputReplyer = modal.find("input[name='replyer']");
+			var modalInputReplyDate = modal.find("input[name='replyDate']");
+						
+			var modalModBtn = $("#modalModBtn");
+			var modalRemoveBtn = $("#modalRemoveBtn");
+			var modalRegisterBtn = $("#modalRegisterBtn");
+			var modalCloseBtn = $("#modalCloseBtn");
+						
+						
+						
+			$("#addReplyBtn").on("click", function(e){
 							
-							var reply = {rno:modal.data("rno"), reply:modalInputReply.val()};
+				modal.find("input").val;
+				modalInputReplyDate.closest("div").hide();
+				//.closest() 상위요소를 찾아주는 함수. 선택자를 기준으로 가장 가까운 상위 요소.
+				//modalInputReplyDate를 기준으로 여기서는 가장 가까운 div를 찾아줌.
+				//이경우 replyDate가 속해있는 div 자체를 숨김
 							
 							
-							replyService.update(reply, function(result){
+				modal.find("button[id != 'modalCloseBtn']").hide();
+				//닫기버튼을 제외한 모든 버튼 숨기기
+							
+				modalRegisterBtn.show();//등록버튼은 보여주기
+							
+				$(".modal").modal("show");							
+							
+			});
+						
+						
+			modalRegisterBtn.on("click", function(){
+							
+				var reply = {
+						reply : modalInputReply.val(),
+						replyer : modalInputReply.val(),
+						bno : bnoValue
+				};
+							
+							
+				replyService.add(reply, function(result){
 								
-								alert(result);
-								modal.modal("hide");//수정 후 모달창 닫기
-								showList(1);
+					alert(result);
 								
-							});
+					modal.find("input").val("");
+					//댓글 등록이 성공하면 경고창으로 결과를 알려주고, 입력 항목을 비움.
+					modal.modal("hide");//모달창을 닫는다.
+								
+					//showList(1);
+					//새 댓글이 달렸으므로 댓글 목록 갱신
+								
+								
+					//사용자가 새로운 댓글을 추가하면
+				//showList(-1);을 호출 하여 댓글의 숫자 파악 후 마지막 페이지를 호출
+					showList(-1);
+								
+				});
+			});
+						
+						
+						
+						
+			/* 댓글 클릭시 수정/삭제가 가능한 모달 창이 뜨도록 */
+			$(".chat").on("click", "li", function(e){
 							
-						});
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						/*댓글 모달창 닫기*/
-						modalCloseBtn.on("click", function(e){
+				var rno = $(this).data("rno");
 							
-							modal.modal("hide");
 							
-						});
+				replyService.get(rno, function(reply){
+							
+					modalInputReply.val(reply.reply);
+							
+					modalInputReplyer.val(reply.replyer);
+					modalInputReplyDate.val(replyService.displayTime(reply.replyDate))
+						.attr("readonly", "readonly");
+								
+					modal.data("rno", reply.rno);
+								
+					modal.find("button[id != 'modalCloseBtn']").hide();
+					modalModBtn.show();
+					modalRemoveBtn.show();
+								
+					$(".modal").modal("show");
+								
+				});
+							
+			});
+						
+						
+			/* 댓글 수정/삭제 이벤트 처리 */
+			modalModBtn.on("click", function(e){
+							
+		 		var reply = {rno:modal.data("rno"), reply:modalInputReply.val()};
+							
+							
+				replyService.update(reply, function(result){
+								
+					alert(result);
+					modal.modal("hide");//수정 후 모달창 닫기
+					showList(1);
+											
+				});
+						
+			});
 						
 						
 						
 						
+			/*댓글 모달창 닫기*/
+			modalCloseBtn.on("click", function(e){
+							
+				modal.modal("hide");
+						
+			});
 						
 						
-					});
+						
+						
+		});
 	
 	
 	
 	
 </script>
+
+
+
+
+
+<script type="text/javascript">
+
+$("button[data-oper='modify']").on(
+		"click",
+		function(e) {
+
+			operForm.attr("action", "/board/modify")
+					.submit();
+
+		});
+
+$("button[data-oper='list']").on("click", function(e) {
+
+	operForm.find("#bno").remove();
+	operForm.attr("action", "/board/list");
+	operForm.submit();
+
+});
+
+</script>
+
 
 
 <%@include file="../includes/footer.jsp"%>

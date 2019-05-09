@@ -52,13 +52,16 @@ var replyService = (function(){
 			$.getJSON("/replies/pages/" + bno + "/" +page+".json",
 				function(data){
 					if(callback){
-						callback(data);
+						//calback(data); //댓글 목록만 가져오는 경우
+						callback(data.replyCnt,data.list);
+						//댓글 목록과 게시글의 댓글 수를 모두 불러옴.
 					}
 			}).fail(function(xhr, status, err) {
 				if(error){
 					error();
-					}
+				}
 			});
+		
 		}
 			
 			
