@@ -1,8 +1,8 @@
 package org.tdd.currency;
 
-public class Dollar {
+public class Dollar extends Money{
 
-	public int amount;
+	//private int amount;
 
 	public Dollar(int amount) {
 
@@ -10,11 +10,23 @@ public class Dollar {
 		
 	}
 
-	public void times(int multiplier) {
+	public Dollar times(int multiplier) {
 
 		//amount *= i;
-		amount = amount*multiplier;
+		//amount = amount*multiplier;
 		
+		return new Dollar(amount*multiplier);
 	}
 
+	/*
+	 * *
+	public boolean equals(Object object) {
+
+		Dollar dollar = (Dollar) object;
+	
+		return amount == dollar.amount;
+	}
+*/
+
 }
+
