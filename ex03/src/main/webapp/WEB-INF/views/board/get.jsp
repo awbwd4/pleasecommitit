@@ -361,7 +361,7 @@
 
 			/* 댓글 페이지 번호 출력 로직 */
 						
-			var pageNum = -1;
+			var pageNum = 1;
 			var replyPageFooter = $(".panel-footer");
 						
 			function showReplyPage(replyCnt){
@@ -427,7 +427,9 @@
 						
 						
 			replyPageFooter.on("click","li a", function(e){
-			       e.preventDefault();
+			      
+					e.preventDefault();
+			       
 			       console.log("page click");
 						       
 			       var targetPageNum = $(this).attr("href");
@@ -540,7 +542,7 @@
 			});
 						
 						
-			/* 댓글 수정/삭제 이벤트 처리 */
+			/* 댓글 수정 이벤트 처리 */
 			modalModBtn.on("click", function(e){
 							
 		 		var reply = {rno:modal.data("rno"), reply:modalInputReply.val()};
@@ -556,7 +558,22 @@
 						
 			});
 						
-						
+					
+			/* 댓글 삭제 이벤트 처리 */
+			modalRemoveBtn.on("click", function(e){
+				
+				var rno = modal.data("rno");
+				
+				replyService.remove(rno, function(result){
+					
+					alert(result);
+					modal.modal("hide");
+					showList(pageNum);
+				});
+				
+				
+			});
+			
 						
 						
 			/*댓글 모달창 닫기*/
