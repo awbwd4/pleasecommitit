@@ -1,9 +1,19 @@
 package org.tdd.currency;
 
-public abstract class Money {
+public class Money {
 
 	protected int amount;
+	protected String currency;
 
+	
+	Money(int amount, String currency){
+		this.amount = amount;
+		this.currency = currency;
+	}
+	
+	
+	
+	
 	//비교대싱이 되는 두 객체의 amount값이 같은가를 확인
 	public boolean equals(Object object) {
 		
@@ -14,7 +24,8 @@ public abstract class Money {
 		//System.out.println();
 		
 		return amount == money.amount
-				&& getClass().equals(money.getClass())
+				//&& getClass().equals(money.getClass())
+				&&currency().equals(money.currency())
 				;
 		/*
 		 * 현재 객체(new Franc(5))의 클래스와
@@ -26,12 +37,29 @@ public abstract class Money {
 	}
 
 	public static Money dollar(int amount) {
-		return new Dollar(amount);
+		return new Money(amount, "USD");
 	}
 
 	public static Money franc(int amount) {
-		return new Franc(amount);
+		return new Money(amount, "CHF");
 	}
 	
-	public abstract Money times(int multiplication);
+	public Money times(int multiplier) {
+		return new Money(amount*multiplier, currency);
+	};
+
+	public String currency() {
+		return currency;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Money [amount=" + amount + ", currency=" + currency + "]";
+	};
+	
+	
+	
 }
