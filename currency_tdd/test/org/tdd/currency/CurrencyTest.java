@@ -51,6 +51,28 @@ public class CurrencyTest {
 	}
 	
 
+	@Test
+	public void testSimpleAddition() {
+
+		Money five = Money.dollar(5);
+		Bank bank = new Bank();
+		
+		//Money sum = Money.dollar(5).plus(Money.dollar(5));
+		
+		Expression sum = five.plus(five);
+		
+		Money reduced = bank.reduce(sum, "USD");
+		//계산 결과에 환율을 적용함. 
+		assertEquals(Money.dollar(10), reduced);
+	}
+	
+	
+	@Test
+	public void testPlusReturnsSum() {
+		Money five = Money.dollar(5);
+	}
+	
+	
 	
 	/*
 	@Test
