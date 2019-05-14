@@ -45,6 +45,7 @@ public class Solution {
 	
 	
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("테스트 케이스 수 입력");
 		
@@ -56,12 +57,11 @@ public class Solution {
 
 			//visited 배열 초기화
 			for (int i = 1; i <= N; i++) {
-				visited[i] = 0;
+				visited[i] = 0;                                       
 			}
 			
 			System.out.println("#"+test_case);
 			dfs(1);
-			
 		}
 	
 	}
