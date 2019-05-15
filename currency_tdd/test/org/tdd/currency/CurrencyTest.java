@@ -61,17 +61,61 @@ public class CurrencyTest {
 		
 		Expression sum = five.plus(five);
 		
-		Money reduced = bank.reduce(sum, "USD");
-		//계산 결과에 환율을 적용함. 
+		Money reduced = bank.reduce(sum, "USD");//계산 결과에 환율을 적용함. 
+		
 		assertEquals(Money.dollar(10), reduced);
 	}
 	
 	
+	//두 Money의 합은 sum(Sum 타입)이어야 한다.
 	@Test
 	public void testPlusReturnsSum() {
 		Money five = Money.dollar(5);
+		Expression result = five.plus(five);
+		Sum sum = (Sum) result;
+		assertEquals(five, sum.augend);
+		assertEquals(five, sum.addend);
+		
 	}
 	
+	@Test
+	public void testReduceSum() {
+		Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+	
+		Bank bank = new Bank();
+		Money result = bank.reduce(sum, "USD");
+	
+		assertEquals(Money.dollar(7), result);
+	
+	}
+	
+	
+	@Test
+	public void testReduceMoney() {
+		Bank bank = new Bank();
+		Money result = bank.reduce(Money.dollar(1), "USD");
+		assertEquals(Money.dollar(1), result);
+	}
+	
+	
+	@Test
+	public void testReduceMoneyDifferentCurrency() {
+		Bank bank = new Bank();
+		bank.addRate("CHF", "USD", 2);
+		Money result = bank.reduce(Money.franc(2), "USD");
+		assertEquals(Money.dollar(1), result);
+	}
+	
+	@Test
+	public void testArrayEquals() {
+		//assertEquals(new Object[] {"abc"}, new Object[] {"abc"});
+		assertEquals(new Object[] {"abc"}, new Object[] {"abc"});
+	}
+	
+	@Test
+	public void testIdentifyRate() {
+		assertEquals(1, new Bank().rate("USD", "USD"));
+	}
 	
 	
 	/*
