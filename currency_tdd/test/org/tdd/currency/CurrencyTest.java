@@ -118,6 +118,72 @@ public class CurrencyTest {
 	}
 	
 	
+	@Test
+	public void testMixedAddition() {
+		
+		Expression fiveBucks = Money.dollar(5);
+		Expression tenFrancs = Money.franc(10);
+		
+		//bank 객체 : 두 통화간 환율을 저장하거나 가져오는 역할
+		Bank bank = new Bank();
+
+		bank.addRate("CHF","USD", 2);
+		//두 통화간 환율 : 2
+		
+		
+		Money result = bank.reduce(
+				fiveBucks.plus(tenFrancs), "USD");
+		//plus는 구현객체에만 있는 메서드
+		//fiveBucks는 Dollar객체를 참조하지만
+		//타입은 Expression이므로, 부모객체에 없는 메서드는 실행x
+		//인터페이스에도 만들어주어야 한다. 
+		//아니면 캐스팅을 하든가
+		
+		
+		assertEquals(Money.dollar(10), result);
+	}
+	
+	
+	public void testSumPlusMoney() {
+		Expression fiveBucks = Money.dollar(5);
+		Expression tenFrnacs = Money.franc(10);
+		
+		Bank bank = new Bank();
+		
+		bank.addRate("CHF", "USD", 2);
+	
+		Expression sum 
+			= new Sum(fiveBucks, tenFrnacs).plus(fiveBucks);
+	
+		Money result = bank.reduce(sum, "USD");
+		
+		assertEquals(Money.dollar(15), result);
+	}
+	
+	
+	public void testSumTimes() {
+	
+		Expression fiveBucks = Money.dollar(5);
+		Expression tenFrancs = Money.franc(10);
+		
+		Bank bank = new Bank();
+		bank.addRate("CHF", "USD", 2);
+		
+		Expression sum = new Sum(fiveBucks, tenFrancs).times(2);
+		Money result = bank.reduce(sum, "USD");
+		assertEquals(Money.dollar(20), result);
+		
+	}
+	
+	public void testPlusSameCurrencyReturnsMoney() {
+		Expression sum = Money.dollar(1).plus(Money.dollar(1));
+		assertTrue(sum instanceof Money);
+	}
+	
+	
+	
+	
+	
 	/*
 	@Test
 	public void testFrancMultiplication() {
